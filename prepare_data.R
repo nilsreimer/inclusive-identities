@@ -34,7 +34,7 @@ rm(list = ls())
 # Transform ---------------------------------------------------------------
   # Code ingroup caste
   d2 <- d2 %>% mutate(
-    ig_caste = recode(q37, "1" = "SCST", "2" = "SCST", "3" = "OBC", "4" = "GM")
+    ig_caste = recode(q37, "1" = "scst", "2" = "scst", "3" = "obc", "4" = "gm")
   ) %>% select(
     session, participant, ig_caste, everything()
   )
@@ -57,12 +57,3 @@ rm(list = ls())
 # Export ------------------------------------------------------------------
   write_rds(d1, "data/d1.rds")
   write_rds(d2, "data/d2.rds")
-  
-
-# Prepare -----------------------------------------------------------------
-  # Individual differences
-  source("data/prepare_data_ic.R")
-  source("data/prepare_data_sdo.R")
-  
-  # Consequences
-  source("data/prepare_data_it.R")
