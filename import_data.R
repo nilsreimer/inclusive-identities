@@ -1,5 +1,10 @@
 rm(list = ls())
 
+# Notes -------------------------------------------------------------------
+  #  See materials/script.pdf (Appendix D) for items and answer options.
+  # Remove raw data .csv before publishing.
+
+
 # Library -----------------------------------------------------------------
   library(tidyverse)
 
@@ -141,6 +146,5 @@ rm(list = ls())
 
 
 # Export ------------------------------------------------------------------
-  write_rds(d1, "data/d1.rds")
-  write_rds(d2, "data/d2.rds")
-
+  write_rds(d1 %>% select(-comments), "data/d1_raw.rds")
+  write_rds(d2 %>% select(-feedback, -comments), "data/d2_raw.rds")
