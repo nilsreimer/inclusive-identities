@@ -39,6 +39,6 @@ model {
   Lcorr ~ lkj_corr_cholesky(1);
 }
 generated quantities {
-  matrix[N_col, N_col] Omega;
-  Omega = multiply_lower_tri_self_transpose(Lcorr);
+  matrix[N_col, N_col] Rho;
+  Rho = multiply_lower_tri_self_transpose(Lcorr);
 }

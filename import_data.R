@@ -143,6 +143,9 @@ rm(list = ls())
   # Assign each participant an unambigious id
   d1 <- d1 %>% mutate(participant = paste(session, participant, sep = ""))
   d2 <- d2 %>% mutate(participant = paste(session, participant, sep = ""))
+  
+  # Rename target and index to make column names clearer.
+  d1 <- d1 %>% rename(order = target, target = index)
 
 
 # Export ------------------------------------------------------------------

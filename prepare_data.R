@@ -18,7 +18,7 @@ rm(list = ls())
 
   
 # Participants ------------------------------------------------------------
-  # Count religion, caste (before exclusion)
+  # Count religion, caste (after exclusion)
   d2 %>% count(q36)
   d2 %>% count(q37)
   
@@ -42,15 +42,15 @@ rm(list = ls())
   # Code target categories
   d1 <- d1 %>% mutate(
     category = case_when(
-      index <= 4 ~ 1L,
-      index <= 8 ~ 2L,
-      index <=12 ~ 3L,
-      index <=16 ~ 4L,
-      index <=20 ~ 5L,
-      index <=24 ~ 6L
+      target <= 4 ~ 1L,
+      target <= 8 ~ 2L,
+      target <=12 ~ 3L,
+      target <=16 ~ 4L,
+      target <=20 ~ 5L,
+      target <=24 ~ 6L
     )
   ) %>% left_join(d2 %>% select(participant, ig_caste)) %>% select(
-    session:index, category, lname:caste, ig_caste, everything()
+    session:target, category, lname:caste, ig_caste, everything()
   )
 
 

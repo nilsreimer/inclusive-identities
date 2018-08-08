@@ -9,12 +9,6 @@ rm(list = ls())
   # Stan options
   options(mc.cores = parallel::detectCores())
   seed = 70475734
-  
-
-# Functions ---------------------------------------------------------------
-  # Standardise variables
-  x_scale   <- function(v, y = v) (v - mean(y, na.rm = TRUE)) / sd(y, na.rm = TRUE)
-  x_unscale <- function(v, y) v * sd(y, na.rm = TRUE) + mean(y, na.rm = TRUE)
 
 
 # Import ------------------------------------------------------------------
@@ -29,82 +23,72 @@ rm(list = ls())
     ig_scst = ifelse(ig_caste == "scst", 1L, 0L)
   ) %>% select(
     participant, ig_obc, ig_scst, q4:q23, q60_1:q60_8
-  ) %>% mutate_at(
-    vars(q4:q60_8), x_scale
+  ) %>% gather("item", "response", -participant)
+  
+  # Standardise variables
+  d_imp <- d_imp %>% left_join(
+    d_imp %>% 
+      group_by(item) %>% 
+      summarise_at(vars(response), funs(mean, sd), na.rm = TRUE), 
+    by = "item"
+  ) %>% mutate(
+    i = 1:n(),
+    x = (response - mean) / sd
   )
   
   # Compose data list
   data_list <- list(
-    # Matrix
-    X = d_imp %>% select(-participant) %>% data.matrix(),
     # Numbers
-    N_row = nrow(X),
-    N_col = ncol(X),
-    N_obs = length(X[!is.na(X)]),
-    N_mis = length(X[is.na(X)]),
+    N_row = n_distinct(d_imp$participant),
+    N_col = n_distinct(d_imp$item),
+    N_mis = sum(is.na(d_imp$x)),
+    N_obs = sum(!is.na(d_imp$x)),
     # Indices
-    ii_obs = matrix(1:length(X), nrow = nrow(X), ncol = ncol(X))[!is.na(X)],
-    ii_mis = matrix(1:length(X), nrow = nrow(X), ncol = ncol(X))[is.na(X)],
+    ii_mis = d_imp$i[is.na(d_imp$x)],
+    ii_obs = d_imp$i[!is.na(d_imp$x)],
     # Vectors
-    x_obs   = X[!is.na(X)],
-    x_mu    = c(rep(0, ncol(X)-2), mean(X[,"ig_obc"]), mean(X[,"ig_scst"])),
-    x_sigma = c(rep(1, ncol(X)-2), sd(X[,"ig_obc"]), sd(X[,"ig_scst"]))
+    x_obs   = d_imp$x[!is.na(d_imp$x)]
   )
   
 
 # Model -------------------------------------------------------------------
   # Initial values
+  X <- d_imp %>% select(participant, item, x) %>% spread(item, x) %>% select(-participant) %>% data.matrix()
   estimates <- function(X, N_mis, perturb = FALSE){
     if(perturb) X <- X + rnorm(length(X), 0, 1)
-    x_mu    <- as.numeric(apply(X, 2, mean, na.rm = TRUE))
-    x_sigma <- as.numeric(apply(X, 2,   sd, na.rm = TRUE))
+    x_mu    <- rep(0, 30)
+    x_sigma <- rep(1, 30)
     x_mis   <- rnorm(N_mis, 0, 1)
     Lcorr   <- t(chol(cor(X, use = "pairwise.complete")))
     return(list(x_mu = x_mu, x_sigma = x_sigma, x_mis = x_mis, Lcorr = Lcorr))
   }
   inits <- function(chain_id){
-    values <- estimates(data_list$X, data_list$N_mis, perturb = chain_id > 1)
+    values <- estimates(X, data_list$N_mis, perturb = chain_id > 1)
     return(values)
   }
 
   # Model
   fit <- stan("data/impute_data_model.stan", data = data_list, init = inits,
-              iter = 2000, warmup = 1000)
+              iter = 2000, warmup = 1000, seed = seed)
 
   
 # Merge -------------------------------------------------------------------
   # Substitute best estimate in standardised data
-  x_imp <- fit %>% spread_samples(x_mis[i]) %>% mode_qi()
-  d_imp <- d_imp %>% 
-    gather("item", "response", -participant) %>%
-    mutate(i = 1:n()) %>%
-    mutate(response = ifelse(i %in% data_list$ii_mis, x_imp$x_mis, response)) %>%
-    select(-i) %>%
-    spread(item, response) %>%
-    select(-ig_obc, -ig_scst)
-  
-  # Transform imputed data to original response scale
-  d_imp <- d_imp %>% 
-    gather("item", "response", -participant) %>%
+  x_imp <- fit %>% spread_samples(x_mis[i]) %>% mode_qi() %>% ungroup()
+  d_imp <- d_imp %>%
     left_join(
-      d2 %>% select(names(d_imp)) %>% 
-        gather("item", "response", -participant) %>% 
-        group_by(item) %>% 
-        summarise_at(vars(response), funs(mean, sd), na.rm = TRUE),
-      by = "item"
+      x_imp %>% mutate(i = data_list$ii_mis), 
+      by = "i"
     ) %>%
-    mutate(response = response * sd + mean) %>%
-    select(-mean, -sd) %>%
-    spread(item, response)
-  
-  # Merge data set
-  d2_impute <- d2 %>%
-    select(-one_of(names(d_imp[,-1]))) %>%
-    left_join(d_imp, by = "participant") %>%
-    select(names(d2))
-
+    mutate(
+      x = ifelse(is.na(x), x_mis, x),
+      x = x * sd + mean,
+      response = ifelse(is.na(response), x, response)
+    ) %>% select(participant, item, response) %>% 
+    spread(item, response) %>%
+    select(-starts_with("ig")) %>% 
+    select(participant, q4, q5, q6, q7, q8, q9, everything())
 
 # Export ------------------------------------------------------------------
-  write_rds(d2_impute, "data/d2_impute.rds")
-
+  write_rds(d_imp, "data/d2_impute.rds")
   

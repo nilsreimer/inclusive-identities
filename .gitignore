@@ -3,3 +3,11 @@
 .Rhistory
 .RData
 .Ruserdata
+.gz
+.log
+.aux
+.bbl
+.lof
+.lot
+.toc
+.blg
