@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.7)  8 AUG 2018 10:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.7)  13 AUG 2018 15:14
 entering extended mode
 **./figures_and_tables.tex
 (figures_and_tables.tex
@@ -1028,40 +1028,23 @@ LaTeX Font Info:    Font shape `OT1/MinionPro-OsF/bx/n' in size <17.28> not ava
 ilable
 (Font)              Font shape `OT1/MinionPro-OsF/b/n' tried instead on input l
 ine 40.
-LaTeX Font Info:    Try loading font information for TS1+MinionPro-OsF on input
- line 45.
-
-(C:\Users\Nils\AppData\Roaming\MiKTeX\2.9\tex\latex\MinionPro\ts1minionpro-osf.
-fd
-File: TS1MinionPro-OsF.fd 2005/01/23 v2.0 font definitions for TS1/MinionPro-Os
-F.
-
-(C:\Users\Nils\AppData\Roaming\MiKTeX\2.9\tex\latex\MinionPro\MinionPro-FontDef
-.sty
-File: MinionPro-FontDef.sty 2007/02/01 v2.2 font definition macros
-))
-Package microtype Info: Loading generic settings for font family
-(microtype)             `MinionPro-OsF' (encoding: TS1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-LaTeX Font Info:    Font shape `OT1/MinionPro-OsF/bx/n' in size <10.95> not ava
-ilable
-(Font)              Font shape `OT1/MinionPro-OsF/b/n' tried instead on input l
-ine 45.
 
 
-LaTeX Warning: Reference `tab:ch4-s4-3' on page 1 undefined on input line 45.
+pdfTeX warning: pdflatex (file ./figures/../figure-1.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<figures/../figure-1.pdf, id=1, 390.0171pt x 227.6505pt>
+File: figures/../figure-1.pdf Graphic file (type pdf)
 
+<use figures/../figure-1.pdf>
+Package pdftex.def Info: figures/../figure-1.pdf used on input line 44.
+(pdftex.def)             Requested size: 390.01614pt x 227.64993pt.
+LaTeX Font Info:    Try loading font information for T1+MinionPro-OsF on input 
+line 45.
 
-LaTeX Warning: Reference `tab:ch4-s4-3' on page 1 undefined on input line 45.
+(C:\Users\Nils\AppData\Roaming\MiKTeX\2.9\tex\latex\MinionPro\t1minionpro-osf.f
+d
+File: T1MinionPro-OsF.fd 2005/01/23 v2.0 font definitions for T1/MinionPro-OsF.
 
-LaTeX Font Info:    Try loading font information for T1+MinionPro-TOsF on input
- line 56.
-
-(C:\Users\Nils\AppData\Roaming\MiKTeX\2.9\tex\latex\MinionPro\t1minionpro-tosf.
-fd
-File: T1MinionPro-TOsF.fd 2005/01/23 v2.0 font definitions for T1/MinionPro-TOs
-F.
 
 (C:\Users\Nils\AppData\Roaming\MiKTeX\2.9\tex\latex\MinionPro\MinionPro-FontDef
 .sty
@@ -1074,7 +1057,7 @@ Package microtype Warning: Unknown slot number of character
 (microtype)                `microtype.cfg/211(protrusion)'.
 
 LaTeX Font Info:    Try loading font information for OML+MinionPro-TOsF on inpu
-t line 56.
+t line 45.
 
 (C:\Users\Nils\AppData\Roaming\MiKTeX\2.9\tex\latex\MinionPro\omlminionpro-tosf
 .fd
@@ -1090,29 +1073,28 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [1
 
-{C:/Users/Nils/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
-(figures_and_tables.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+{C:/Users/Nils/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./figures/..
+/figure-1.pdf>] [2] (figures_and_tables.aux) ) 
 Here is how much of TeX's memory you used:
- 9755 strings out of 493329
- 157412 string characters out of 3139067
- 218469 words of memory out of 3000000
- 12989 multiletter control sequences out of 15000+200000
- 209239 words of font info for 148 fonts, out of 3000000 for 9000
+ 9469 strings out of 493329
+ 150188 string characters out of 3139067
+ 217469 words of memory out of 3000000
+ 12721 multiletter control sequences out of 15000+200000
+ 220636 words of font info for 132 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,8n,77p,879b,706s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/Nils/AppData/Roaming/MiKTeX/2.9/fonts/enc/dvips/MinionPro/base-Mini
-onPro-ad.enc}{C:/Users/Nils/AppData/Roaming/MiKTeX/2.9/fonts/enc/dvips/MinionPr
-o/base-MinionPro-aa.enc}<C:/Users/Nils/AppData/Roaming/MiKTeX/2.9/fonts/type1/A
-dobe/MinionPro/MinionPro-Bold.pfb><C:/Users/Nils/AppData/Roaming/MiKTeX/2.9/fon
-ts/type1/Adobe/MinionPro/MinionPro-It.pfb><C:/Users/Nils/AppData/Roaming/MiKTeX
-/2.9/fonts/type1/Adobe/MinionPro/MinionPro-Regular.pfb>
-Output written on figures_and_tables.pdf (2 pages, 151759 bytes).
+ 56i,8n,76p,648b,703s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/Nils/AppData/Roaming/Mi
+KTeX/2.9/fonts/enc/dvips/MinionPro/base-MinionPro-ab.enc}{C:/Program Files/MiKT
+eX 2.9/fonts/enc/dvips/mnsymbol/MnSymbolD.enc}{C:/Users/Nils/AppData/Roaming/Mi
+KTeX/2.9/fonts/enc/dvips/MinionPro/base-MinionPro-aa.enc}<C:/Users/Nils/AppData
+/Roaming/MiKTeX/2.9/fonts/type1/Adobe/MinionPro/MinionPro-Bold.pfb><C:/Users/Ni
+ls/AppData/Roaming/MiKTeX/2.9/fonts/type1/Adobe/MinionPro/MinionPro-It.pfb><C:/
+Users/Nils/AppData/Roaming/MiKTeX/2.9/fonts/type1/Adobe/MinionPro/MinionPro-Reg
+ular.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/mnsymbol/MnSymbol10.pf
+b>
+Output written on figures_and_tables.pdf (2 pages, 429833 bytes).
 PDF statistics:
- 29 PDF objects out of 1000 (max. 8388607)
+ 85 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 39425 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 40454 words of extra memory for PDF output out of 42996 (max. 10000000)
 

@@ -1,8 +1,11 @@
 rm(list = ls())
 
 # Notes -------------------------------------------------------------------
-  #  See materials/script.pdf (Appendix D) for items and answer options.
-  # Remove raw data .csv before publishing.
+  # See materials/script.pdf (Appendix D) for items and answer options.
+
+  # To protect participants, we do not provide the raw data (data/sessions/)
+  # with verbatim comments; this R script is thus not functional. Please import 
+  # data/d1_raw.rds and data/d2_raw.rds directly.
 
 
 # Library -----------------------------------------------------------------

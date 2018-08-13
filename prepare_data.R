@@ -53,7 +53,37 @@ rm(list = ls())
     session:target, category, lname:caste, ig_caste, everything()
   )
 
+  # Convert participant id to integer
+  d1 <- d1 %>% mutate(participant = as.integer(ordered(participant)))
+  d2 <- d2 %>% mutate(participant = as.integer(ordered(participant)))
+  
 
 # Export ------------------------------------------------------------------
   write_rds(d1, "data/d1.rds")
   write_rds(d2, "data/d2.rds")
+  
+  
+# Prepare -----------------------------------------------------------------
+  # Impute missing data (predictor variables)
+  # source("data/impute_data.R") 
+  # This takes a long time; import read_rds("data/d2_impute.rds") instead.
+  
+  # Prepare data for analyses
+  source("data/prepare_data_ic.R")
+  source("data/prepare_data_sdo.R")
+  source("data/prepare_data_it.R")
+  
+  # Compile data for analyses
+  # d1
+  # d1_pred
+  # d2_it
+  # d2_ps
+
+# Export ------------------------------------------------------------------
+  write_rds(d1, "data/d1_with_predictors.rds")
+  write_rds(d2_it, "data/d2_intergroup_threat.rds")
+  
+  # Export to other formats
+  # write_csv(d1, "data/export/d1.csv")
+  # write_csv(d1_pred, "data/export/d1_with_predictors.csv")
+  # write_csv(d2, "data/export/d2.csv")
