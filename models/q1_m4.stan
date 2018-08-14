@@ -4,20 +4,26 @@ data {
   int<lower = 1> K;
   int<lower = 1, upper = J> jj[N];
   int<lower = 1, upper = K> kk[N];
-  int<lower = 0, upper = 1> x_obc[N];
   int<lower = 0, upper = 1> x_scst[N];
+  int<lower = 0, upper = 1> x_og[N];
+  vector[N] x_cq;
+  vector[N] x_pc;
+  vector[N] x_nc;
+  vector[N] x_of;
   int<lower = 0, upper = 1> y[N];
 }
 parameters {
   real b_0;
+  real b_cq;
+  real b_pc;
+  real b_nc;
+  real b_of;
   vector[J] b_j;
   vector[K] b_k;
   vector[4] b_scst_k;
-  vector[4] b_obc_k;
   real<lower = 0> sigma_j;
   real<lower = 0> sigma_k;
   real<lower = 0> sigma_scst_k;
-  real<lower = 0> sigma_obc_k;
 }
 transformed parameters {
   vector[N] alpha;
@@ -25,37 +31,39 @@ transformed parameters {
   for (i in 1:N) {
     alpha[i] = b_0 + b_j[jj[i]]*sigma_j + b_k[kk[i]]*sigma_k;
     if (kk[i] <= 4) {
-      alpha[i] = alpha[i] + x_scst[i]*(b_scst_k[kk[i]]*sigma_scst_k) + x_obc[i]*(b_obc_k[kk[i]]*sigma_obc_k);
+      alpha[i] = alpha[i] + x_scst[i]*(b_scst_k[kk[i]]*sigma_scst_k) + x_og[i]*(b_cq*x_cq[i] + b_pc*x_pc[i] + b_nc*x_nc[i] + b_of*x_of[i]);
     }
   }
 }
 model {
   b_0 ~ student_t(2.5, 0, 1);
+  b_cq ~ student_t(2.5, 0, 1);
+  b_pc ~ student_t(2.5, 0, 1);
+  b_nc ~ student_t(2.5, 0, 1);
+  b_of ~ student_t(2.5, 0, 1);
   b_j ~ normal(0, 1);
   b_k ~ normal(0, 1);
   b_scst_k ~ normal(0, 1);
-  b_obc_k ~ normal(0, 1);
   sigma_j ~ cauchy(0, 1);
   sigma_k ~ cauchy(0, 1);
   sigma_scst_k ~ cauchy(0, 1);
-  sigma_obc_k ~ cauchy(0, 1);
   
   for (i in 1:N)
     y[i] ~ bernoulli_logit(alpha[i]);
 }
 generated quantities {
-  vector<lower = 0, upper = 1>[3] p_k[K];
+  vector[3] l_k[K];
   vector[N] log_lik;
-  
+
   for (k in 1:K) {
     if (k <= 4) {
-      p_k[k,1] = inv_logit(b_0 + b_k[k]*sigma_k);
-      p_k[k,2] = inv_logit(b_0 + b_k[k]*sigma_k + b_obc_k[k]*sigma_obc_k);
-      p_k[k,3] = inv_logit(b_0 + b_k[k]*sigma_k + b_scst_k[k]*sigma_scst_k);      
+      l_k[k,1] = b_0 + b_k[k]*sigma_k;
+      l_k[k,2] = b_0 + b_k[k]*sigma_k;
+      l_k[k,3] = b_0 + b_k[k]*sigma_k + b_scst_k[k]*sigma_scst_k;      
     } else {
-      p_k[k,1] = inv_logit(b_0 + b_k[k]*sigma_k);
-      p_k[k,2] = inv_logit(b_0 + b_k[k]*sigma_k);
-      p_k[k,3] = inv_logit(b_0 + b_k[k]*sigma_k);
+      l_k[k,1] = b_0 + b_k[k]*sigma_k;
+      l_k[k,2] = b_0 + b_k[k]*sigma_k;
+      l_k[k,3] = b_0 + b_k[k]*sigma_k;
     }
   }
 

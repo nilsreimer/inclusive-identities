@@ -4,7 +4,7 @@ data {
   int<lower = 1> K;
   int<lower = 1, upper = J> jj[N];
   int<lower = 1, upper = K> kk[N];
-  int<lower = 0, upper = 1> scst[N];
+  int<lower = 0, upper = 1> x_scst[N];
   int<lower = 0, upper = 1> y[N];
 }
 parameters {
@@ -22,7 +22,7 @@ transformed parameters {
   for (i in 1:N) {
     alpha[i] = b_0 + b_j[jj[i]]*sigma_j + b_k[kk[i]]*sigma_k;
     if (kk[i] <= 4) {
-      alpha[i] = alpha[i] + scst[i]*(b_scst_k[kk[i]]*sigma_scst_k);
+      alpha[i] = alpha[i] + x_scst[i]*(b_scst_k[kk[i]]*sigma_scst_k);
     }
   }
 }
