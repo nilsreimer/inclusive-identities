@@ -13,4 +13,3 @@
 .blg
 mc_fit_group_differences.rds
 q1_mc_fit.rds
-q1_mc_loo.rds
