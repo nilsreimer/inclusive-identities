@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.7)  13 AUG 2018 15:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.7)  14 AUG 2018 14:09
 entering extended mode
 **./figures_and_tables.tex
 (figures_and_tables.tex
@@ -1024,27 +1024,13 @@ G,.JBIG2,.JB2,.eps]
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Font shape `OT1/MinionPro-OsF/bx/n' in size <17.28> not ava
-ilable
-(Font)              Font shape `OT1/MinionPro-OsF/b/n' tried instead on input l
-ine 40.
+LaTeX Font Info:    Try loading font information for T1+MinionPro-TOsF on input
+ line 45.
 
-
-pdfTeX warning: pdflatex (file ./figures/../figure-1.pdf): PDF inclusion: found
- PDF version <1.7>, but at most version <1.5> allowed
-<figures/../figure-1.pdf, id=1, 390.0171pt x 227.6505pt>
-File: figures/../figure-1.pdf Graphic file (type pdf)
-
-<use figures/../figure-1.pdf>
-Package pdftex.def Info: figures/../figure-1.pdf used on input line 44.
-(pdftex.def)             Requested size: 390.01614pt x 227.64993pt.
-LaTeX Font Info:    Try loading font information for T1+MinionPro-OsF on input 
-line 45.
-
-(C:\Users\Nils\AppData\Roaming\MiKTeX\2.9\tex\latex\MinionPro\t1minionpro-osf.f
-d
-File: T1MinionPro-OsF.fd 2005/01/23 v2.0 font definitions for T1/MinionPro-OsF.
-
+(C:\Users\Nils\AppData\Roaming\MiKTeX\2.9\tex\latex\MinionPro\t1minionpro-tosf.
+fd
+File: T1MinionPro-TOsF.fd 2005/01/23 v2.0 font definitions for T1/MinionPro-TOs
+F.
 
 (C:\Users\Nils\AppData\Roaming\MiKTeX\2.9\tex\latex\MinionPro\MinionPro-FontDef
 .sty
@@ -1071,30 +1057,60 @@ File: MinionPro-FontDef.sty 2007/02/01 v2.2 font definition macros
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[1
 
-{C:/Users/Nils/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./figures/..
-/figure-1.pdf>] [2] (figures_and_tables.aux) ) 
+
+pdfTeX warning: pdflatex (file ../figures/figure-1.pdf): PDF inclusion: found P
+DF version <1.7>, but at most version <1.5> allowed
+<../figures/figure-1.pdf, id=1, 390.0171pt x 227.6505pt>
+File: ../figures/figure-1.pdf Graphic file (type pdf)
+
+<use ../figures/figure-1.pdf>
+Package pdftex.def Info: ../figures/figure-1.pdf used on input line 82.
+(pdftex.def)             Requested size: 390.01614pt x 227.64993pt.
+
+<../figures/figure-2.pdf, id=2, 389.455pt x 454.69875pt>
+File: ../figures/figure-2.pdf Graphic file (type pdf)
+
+<use ../figures/figure-2.pdf>
+Package pdftex.def Info: ../figures/figure-2.pdf used on input line 109.
+(pdftex.def)             Requested size: 389.45404pt x 454.69763pt.
+LaTeX Font Info:    Try loading font information for TS1+MinionPro-OsF on input
+ line 112.
+
+(C:\Users\Nils\AppData\Roaming\MiKTeX\2.9\tex\latex\MinionPro\ts1minionpro-osf.
+fd
+File: TS1MinionPro-OsF.fd 2005/01/23 v2.0 font definitions for TS1/MinionPro-Os
+F.
+
+(C:\Users\Nils\AppData\Roaming\MiKTeX\2.9\tex\latex\MinionPro\MinionPro-FontDef
+.sty
+File: MinionPro-FontDef.sty 2007/02/01 v2.2 font definition macros
+))
+Package microtype Info: Loading generic settings for font family
+(microtype)             `MinionPro-OsF' (encoding: TS1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [1{C:/Users/Nils/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <../figure
+s/figure-1.pdf>] [2] [3] [4 <../figures/figure-2.pdf>] [5]
+(figures_and_tables.aux) ) 
 Here is how much of TeX's memory you used:
- 9469 strings out of 493329
- 150188 string characters out of 3139067
- 217469 words of memory out of 3000000
- 12721 multiletter control sequences out of 15000+200000
- 220636 words of font info for 132 fonts, out of 3000000 for 9000
+ 9831 strings out of 493329
+ 159219 string characters out of 3139067
+ 235501 words of memory out of 3000000
+ 13002 multiletter control sequences out of 15000+200000
+ 244776 words of font info for 198 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,8n,76p,648b,703s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/Nils/AppData/Roaming/Mi
-KTeX/2.9/fonts/enc/dvips/MinionPro/base-MinionPro-ab.enc}{C:/Program Files/MiKT
-eX 2.9/fonts/enc/dvips/mnsymbol/MnSymbolD.enc}{C:/Users/Nils/AppData/Roaming/Mi
-KTeX/2.9/fonts/enc/dvips/MinionPro/base-MinionPro-aa.enc}<C:/Users/Nils/AppData
-/Roaming/MiKTeX/2.9/fonts/type1/Adobe/MinionPro/MinionPro-Bold.pfb><C:/Users/Ni
-ls/AppData/Roaming/MiKTeX/2.9/fonts/type1/Adobe/MinionPro/MinionPro-It.pfb><C:/
-Users/Nils/AppData/Roaming/MiKTeX/2.9/fonts/type1/Adobe/MinionPro/MinionPro-Reg
-ular.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/mnsymbol/MnSymbol10.pf
-b>
-Output written on figures_and_tables.pdf (2 pages, 429833 bytes).
+ 43i,12n,77p,936b,705s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/Nils/AppData/Roaming/MiKTeX/2.9/fonts/enc/d
+vips/MinionPro/base-MinionPro-ad.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvi
+ps/mnsymbol/MnSymbolD.enc}{C:/Users/Nils/AppData/Roaming/MiKTeX/2.9/fonts/enc/d
+vips/MinionPro/base-MinionPro-aa.enc}<C:/Users/Nils/AppData/Roaming/MiKTeX/2.9/
+fonts/type1/Adobe/MinionPro/MinionPro-It.pfb><C:/Users/Nils/AppData/Roaming/MiK
+TeX/2.9/fonts/type1/Adobe/MinionPro/MinionPro-Regular.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/mnsymbol/MnSymbol10.pfb>
+Output written on figures_and_tables.pdf (5 pages, 409602 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
+ 99 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 40454 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 41995 words of extra memory for PDF output out of 42996 (max. 10000000)
 

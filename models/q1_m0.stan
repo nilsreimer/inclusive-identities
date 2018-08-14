@@ -25,11 +25,14 @@ model {
     y[i] ~ bernoulli_logit(alpha[i]);
 }
 generated quantities {
-  vector<lower = 0, upper = 1>[K] p_k;
+  vector<lower = 0, upper = 1>[3] p_k[K];
   vector[N] log_lik;
   
-  for (k in 1:K)
-    p_k[k] = inv_logit(b_0);
+  for (k in 1:K) {
+    for (l in 1:3) {
+      p_k[k,l] = inv_logit(b_0);
+    }
+  }
     
   for (i in 1:N)
     log_lik[i] = bernoulli_logit_lpmf(y[i] | alpha[i]);
