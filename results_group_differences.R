@@ -20,8 +20,8 @@ rm(list = ls())
     K = n_distinct(category),
     jj = participant,
     kk = category,
-    scst = ifelse(ig_caste == "scst", 1L, 0L),
-    obc = ifelse(ig_caste == "obc", 1L, 0L),
+    x_scst = ifelse(ig_caste == "scst", 1L, 0L),
+    x_obc = ifelse(ig_caste == "obc", 1L, 0L),
     y = q1
   ))
 
@@ -95,14 +95,3 @@ rm(list = ls())
   
   # Export
   write_rds(post, "models/q1_post.rds")
-  
-  # post %>%
-  #   unnest(p_est) %>%
-  #   mutate(model = ordered(model)) %>%
-  #   group_by(model, category, ig_caste) %>%
-  #   # median_hdi(.width = .80) %>%
-  # ggplot(., aes(y = category, x = p_k)) +
-  #   geom_halfeyeh(aes(group = model, fill = model, colour = model)) +
-  #   scale_fill_viridis_d(alpha = 0.25) +
-  #   scale_y_reverse(breaks = 1:6) +
-  #   facet_grid(. ~ ig_caste)
