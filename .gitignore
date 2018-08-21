@@ -1,4 +1,5 @@
 *.Rproj
+github.Rproj
 *.Rproj.user
 *.Rhistory
 *.RData
