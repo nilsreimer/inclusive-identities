@@ -17,7 +17,9 @@
 
 # Merge Part 1 and Part 2 data (intergroup contact)
   dl <- left_join(dl, d2_imp, by = c("participant", "category"))
-
+  
+# Summaries used to standardise contact variables
+  ds <- read_rds("data/d2_impute.rds") %>% distinct(item, mean, sd)
   
 # Export
   write_rds(dl, "dl_ic.rds")

@@ -1,8 +1,11 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[12pt, a4paper]{article}
 \usepackage[utf8]{inputenc}
 
 % Format
 \usepackage{layout}
+\setlength{\parindent}{0.5in}
+\setcounter{secnumdepth}{0}
+\usepackage{lineno}
 
 % Font
 \usepackage{MinionPro}
@@ -20,8 +23,7 @@
 
 % Figures
 \usepackage{graphicx}
-\usepackage{caption}    
-\graphicspath{ {figures/} }
+\usepackage[small, labelfont=it, labelsep=period]{caption}
 
 % Tables
 \usepackage{booktabs}
@@ -31,13 +33,22 @@
 \newcommand{\pest}[4]{$ \text{Pr} (\text{``us''} | \text{#1}) = #2$, $[#3, #4]$}
 \newcommand{\pdif}[4]{$ \Delta\text{Pr} (\text{``us''} | \text{#1}) = #2$, $[#3, #4]$}
 
+% Frontmatter
+\title{Intergroup contact fosters\\more inclusive social identities}
+\date{August 23, 2018}
+
 \begin{document}
 
-% Captions
-\captionsetup[figure]{font={small},labelfont={it},labelformat={default}, labelsep=period}
-\captionsetup[table]{font={small},labelfont={it},labelformat={default}, labelsep=period}
+\begin{figure}
+\centering
+\includegraphics[scale=1]{../figures/figure-1}
+\caption{
+Schematic representations of social identity structures, ordered by social identity inclusiveness. Shaded regions represent the groups which a participant has to categorize as ``us'' to be assigned that structure. An Indian Hindu, for example, may consider only people who share their nationality, religion, and caste as ingroup members (intersection). Someone else may consider all their fellow Indians, whatever their religion or caste, as ingroup members (dominance). Another person may consider anyone who shares their nationality or religion as ingroup members (merger).
+}
+\label{fig:f1}
+\end{figure}
 
-\begin{table}[h]
+\begin{table}    
 \caption[Participants by gender, age, nationality, religion, and caste]{Participants by gender, age, nationality, religion, and caste. Categories in \textit{italics} were excluded from the final sample. N/A marks missing responses.}
 \centering
 \figureversion{lining, tabular}
@@ -79,26 +90,28 @@ Total       &   & 351 & 100 \\ \bottomrule
 
 \begin{figure}
 \centering
-\includegraphics[scale=1]{../figures/figure-1}
-\caption{Examples of targets used in the triple crossed-categorization task. Based on ratings in pilot study ($N = 26$), we selected the four most prototypical targets (out of fifty initial targets) for each of six plausible combinations of caste, religion, and nationality (for details, see Appendix~A). Each target showed a person's caste (GM = General Merit, OBC = Other Backward Class, SC/ST = Scheduled Caste/Scheduled Tribe), religion (Hindu, Muslim), and nationality (Indian, Nepali, Sri Lankan, Bangladeshi). Each target also showed the person's first and last name, age (21--26 years), and a silhouette corresponding to the person's gender (adapted from Ma, Correll \& Wittenbrink, 2015). Each target's age and silhouette, as well as the order in which the targets were presented, varied across sessions.}
-\label{fig:f1}
+\includegraphics[scale=1]{../figures/figure-2}
+\caption{Examples of targets used in the triple crossed-categorization task. Based on ratings in a pilot study ($N = 26$), we selected the four most prototypical targets (out of fifty initial targets) for each of six plausible combinations of caste, religion, and nationality (for details, see Appendix~A). Each target showed a person's caste (GM = General Merit, OBC = Other Backward Class, SC/ST = Scheduled Caste/Scheduled Tribe), religion (Hindu, Muslim), and nationality (Indian, Nepali, Sri Lankan, Bangladeshi). Each target also showed the person's first and last name, age (21--26 years), and a silhouette corresponding to the person's gender (adapted from Ma, Correll \& Wittenbrink, 2015). Each target's age and silhouette, as well as the order in which the targets were presented, varied across sessions.}
+\label{fig:f2}
 \end{figure}
 
 \begin{table}
-\caption{}
+\caption{
+Comparison of models estimating the probability of participants categorising targets as ``us'' versus ``not us''. $\textit{ELPD}$ is the expected log predictive density, with higher numbers indicating that a model is expected to make more accurate out-of-sample predictions (Vehtari, Gelman, \& Gabry, 2017). $\Delta\textit{ELPD}$ is the difference in $\textit{ELPD}$ between the current and previous model, with positive values indicating that the current model is expected to make more accurate out-of-sample predictions. We selected a more complex model over a simpler model when $\frac{\Delta\textit{ELPD}}{\textit{SE}} \geq 2$. % Appendix~X describes all models in detail.
+}
 \centering
 \figureversion{lining, tabular}
 \small	
 \begin{tabularx}{\linewidth}{r@{~}rXrrrrr} \toprule
 \# &  & Description & $\textit{ELPD}$ & $\textit{SE}$ & $\Delta\textit{ELPD}$ & $\textit{SE}$ & $\frac{\Delta\textit{ELPD}}{\textit{SE}}$ \\ \midrule 
-0 &      & \ldots & -4262.5 & 33.0 & - & - & - \\
-1 & vs 0 & \ldots & -3156.0 & 46.7 & 1106.6 & 42.7 & 25.9 \\
-2 & vs 1 & \ldots & -3073.5 & 47.3 &   82.5 & 11.9 &  6.9 \\
-3 & vs 2 & \ldots & -3068.1 & 47.4 &    5.4 &  3.4 &  1.6 \\ \midrule
-4 & vs 2 & \ldots & . & . & . & . & . \\
-5 & vs 4 & \ldots & . & . & . & . & . \\
-6 & vs 5 & \ldots & . & . & . & . & . \\
-7 & vs 2 & \ldots & . & . & . & . & . \\
+0 &      & Varying intercept (Participant) & -4262.7 & 33.1 & - & - & - \\
+1 & vs 0 & Varying intercept (Category) & -3156.2 & 46.6 & 1106.5 & 42.7 & 25.9 \\
+2 & vs 1 & Group differences (SC/ST) & -3074.5 & 47.3 &   81.7 & 12.0 &  6.8 \\
+3 & vs 2 & Group differences (OBC) & -3069.2 & 47.4 &    5.3 &  3.4 &  1.7 \\ \midrule
+4 & vs 2 & Intergroup contact (4) & -3047.6 & 47.5 &   26.9 &  8.2 &  3.3 \\
+5 & vs 4 & Intergroup contact (2) & -3045.4 & 47.5 &    2.2 &  0.4 &  5.5 \\
+6 & vs 5 & Intergroup contact (OBC, SC/ST) & -3048.9 & 47.5 &   -3.4 &  2.5 & -1.4 \\
+7 & vs 2 & Social dominance orientation & -3076.0 & 47.5 &   -1.5 &  1.5 & -1.0 \\
 \bottomrule
 \end{tabularx}
 \label{tab:t2}
@@ -106,37 +119,73 @@ Total       &   & 351 & 100 \\ \bottomrule
 
 \begin{figure}
 \centering
-\includegraphics[scale=1]{../figures/figure-2}
+\includegraphics[scale=1]{../figures/figure-3}
 \caption{
-Estimated probability of participants categorizing a target as ``us'' versus ``not us'' by targets' nationality, religion, and caste (vertical), and participants' caste membership (horizontal). Dots (•) indicate the most likely \emph{estimate} for a given target's probability of being included in participants' ingroup (in Model~2, Table~\ref{tab:t2}), while the shaded ribbons encompass the 67\% (darkest shade), 89\%, and 97\% (lightest shade) most likely estimates of that probability. Pluses (+) indicate the \emph{observed} proportion of participants who included a given target in their ingroup. % Add sentence about posterior predictive checking.
+Estimated probability of participants categorizing a target as ``us'' versus ``not us'' by targets' nationality, religion, and caste (vertical), and participants' caste membership (horizontal). Dots (•) indicate the most plausible \emph{estimate} for a given target's probability of being included in participants' ingroup (in Model~2, Table~\ref{tab:t2}), while the shaded ribbons encompass the 67\% (darkest shade), 89\%, and 97\% (lightest shade) most plausible estimates of that probability. Pluses (+) indicate the \emph{observed} proportion of participants who included a given target in their ingroup. Comparing predicted and observed proportion shows that the model represents the data reasonably well. GM = General Merit, OBC = Other Backward Class, SC/ST = Scheduled Caste/Scheduled Tribe.
 }
-\label{fig:f2}
+\label{fig:f3}
 \end{figure}
 
 \begin{figure}
 \centering
-%\includegraphics[scale=1]{../figures/figure-3}
-\caption{Estimated probability of participants categorising a target as ``us'' versus ``not us'' as a function of the targets' group memberships (horizontal), the participants' group memberships (colour), and the reported amount of negative contact and outgroup friendship with the relevant groups         (in Model~5, Table~\ref{tab:t2}).}
-\label{fig:f3}
+\includegraphics[scale=1]{../figures/figure-4}
+\caption{Estimated probability of participants categorising a target as ``us'' versus ``not us'' as a function of the targets' group memberships (horizontal), the participants' group memberships (colour), and the reported amount of negative contact and outgroup friendship with the relevant groups (in Model~5, Table~\ref{tab:t2}). GM = General Merit, OBC = Other Backward Class, SC/ST = Scheduled Caste/Scheduled Tribe.}
+\label{fig:f4}
 \end{figure}
 
 \begin{table}
-\caption{}
+\caption{Comparison of models estimating participants' social distance (SD) and feeling thermometer (FT) ratings for each target as a function of group differences and target categorizations. As in Table~\ref{tab:t2}, we selected a more complex model over a simpler model when $\frac{\Delta\textit{ELPD}}{\textit{SE}} \geq 2$. $R^2$ is a Bayesian analogue to $R^2$ in maximum likelihood estimation (Gelman, Goodrich, Gabry, \& Ali, 2017).}
 \centering
 \figureversion{lining, tabular}
 \small	
 \begin{tabularx}{\linewidth}{r@{~}rXrrrrrrr} \toprule
-\# &  & Description & $R^2_\text{Q2}$ & $R^2_\text{Q3}$ & $\textit{ELPD}$ & $\textit{SE}$ & $\Delta\textit{ELPD}$ & $\textit{SE}$ & $\frac{\Delta\textit{ELPD}}{\textit{SE}}$ \\ \midrule 
-0 &      & \ldots & . & . & . & . & . & . & . \\
-1 & vs 0 & \ldots & . & . & . & . & . & . & . \\
-2 & vs 1 & \ldots & . & . & . & . & . & . & . \\
-3 & vs 2 & \ldots & . & . & . & . & . & . & . \\ \midrule
-4 & vs 3 & \ldots & . & . & . & . & . & . & . \\
-5 & vs 4 & \ldots & . & . & . & . & . & . & . \\
-6 & vs 5 & \ldots & . & . & . & . & . & . & . \\
-\bottomrule
+\# &  & Description & $R^2_\text{SD}$ & $R^2_\text{FT}$ & $\textit{ELPD}$ & $\textit{SE}$ & $\Delta\textit{ELPD}$ & $\textit{SE}$ & $\frac{\Delta\textit{ELPD}}{\textit{SE}}$ \\ \midrule 
+0 &      & \ldots~(Participant) & .23 & .26 & -15203.4 & 111.8 &     - &    - &    - \\
+1 & vs 0 & \ldots~(Category)    & .38 & .42 & -14300.1 & 117.9 & 903.3 & 39.6 & 22.8 \\
+2 & vs 1 & \ldots~(SC/ST)       & .38 & .43 & -14248.7 & 118.2 &  51.4 &  8.8 &  5.8 \\
+3 & vs 2 & \ldots~(OBC)         & .39 & .43 & -14222.2 & 118.4 &  26.5 &  7.2 &  3.7 \\ \midrule
+4 & vs 3 & Categorization       & .42 & .47 & -14004.5 & 120.6 & 217.7 & 22.7 &  9.6 \\
+5 & vs 4 & \ldots~(Category)    & .42 & .47 & -13986.9 & 120.9 &  17.6 &  7.7 &  2.3 \\
+6 & vs 5 & \ldots~(OBC, SC/ST)  & .42 & .47 & -13988.9 & 120.8 &  -2.0 &  3.6 & -0.6 \\
+\bottomrule    
 \end{tabularx}
 \label{tab:t3}
 \end{table}
+
+\begin{figure}
+\centering
+\includegraphics[scale=1]{../figures/figure-5}
+\caption{
+Posterior probabilities of social distance ratings as a function of target categorizations (in Model 5, Table~\ref{tab:t3}). Points are the estimated mean ratings for targets categorized as ``us''; triangles are the estimated mean ratings for targets categorized as ``not us''. GM = General Merit, OBC = Other Backward Class, SC/ST = Scheduled Caste/Scheduled Tribe.
+}
+\label{fig:f5}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[scale=1]{../figures/figure-6}
+\caption{
+Posterior probabilities of feeling thermometer ratings as a function of target categorizations (in Model 5, Table~\ref{tab:t3}). Points are the estimated mean ratings for targets categorized as ``us''; triangles are the estimated mean ratings for targets categorized as ``not us''. GM = General Merit, OBC = Other Backward Class, SC/ST = Scheduled Caste/Scheduled Tribe.
+}
+\label{fig:f6}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[scale=1]{../figures/figure-7}
+\caption{
+Posterior probabilities of perceived life difficulty ratings for different target groups (right) by participants' caste ingroup (left). Diamonds mark the most plausible estimate of each mean rating; intervals encompass the 97\% most plausible estimates. GM = General Merit, OBC = Other Backward Class, SC/ST = Scheduled Caste/Scheduled Tribe.
+}
+\label{fig:f7}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[scale=1]{../figures/figure-8}
+\caption{
+Posterior probabilities of policy support ratings for different target groups (right) by participants' caste ingroup (left). Diamonds mark the most plausible estimate of each mean rating; intervals encompass the 97\% most plausible estimates. GM = General Merit, OBC = Other Backward Class, SC/ST = Scheduled Caste/Scheduled Tribe.
+}
+\label{fig:f8}
+\end{figure}
 
 \end{document}

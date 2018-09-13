@@ -1,7 +1,7 @@
 rm(list = ls())
 
 # Notes -------------------------------------------------------------------
-  # This script imputes missing responses (n = 66) to the intergroup contact
+  # This script imputes missing responses (n = 66) for the intergroup contact
   # variables, and returns a data frame with both observed responses and 
   # draws from the posterior distribution for missing responses. 
 

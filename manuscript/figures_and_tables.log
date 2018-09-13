@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.7)  14 AUG 2018 15:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.7)  13 SEP 2018 11:27
 entering extended mode
 **./figures_and_tables.tex
 (figures_and_tables.tex
@@ -369,6 +369,24 @@ Package: layout 2014/10/28 v1.2c Show layout parameters
 \PositionY=\count116
 \ArrowLength=\count117
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\lineno\lineno.sty"
+Package: lineno 2005/11/02 line numbers on paragraphs v4.41
+\linenopenalty=\count118
+\output=\toks16
+\linenoprevgraf=\count119
+\linenumbersep=\dimen103
+\linenumberwidth=\dimen104
+\c@linenumber=\count120
+\c@pagewiselinenumber=\count121
+\c@LN@truepage=\count122
+\c@internallinenumber=\count123
+\c@internallinenumbers=\count124
+\quotelinenumbersep=\dimen105
+\bframerule=\dimen106
+\bframesep=\dimen107
+\bframebox=\box26
+LaTeX Info: Redefining \\ on input line 3056.
+)
 (C:\Users\Nils\AppData\Roaming\MiKTeX\2.9\tex\latex\MinionPro\MinionPro.sty
 Package: MinionPro 2007/03/15 v2.1 MinionPro support for LaTeX
 
@@ -381,13 +399,13 @@ Package: otfontdef 2005/06/04 v0.1e OpenType font definition
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks16
+\KV@toks@=\toks17
 ))
-\Mn@option@normalsize=\dimen103
+\Mn@option@normalsize=\dimen108
 Package MinionPro-FontDef Info: Configuration: smallfamily, noopticals, normals
 ize=12.0pt on input line 52.
-\Mn@config@cnt=\count118
-\Mn@fontdimen=\dimen104
+\Mn@config@cnt=\count125
+\Mn@fontdimen=\dimen109
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\textcomp.sty"
 Package: textcomp 2017/01/24 v2.0c Standard LaTeX package
@@ -558,51 +576,51 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks17
-\ex@=\dimen105
+\@emptytoks=\toks18
+\ex@=\dimen110
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen106
+\pmbraise@=\dimen111
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count119
+\inf@bad=\count126
 LaTeX Info: Redefining \frac on input line 213.
-\uproot@=\count120
-\leftroot@=\count121
+\uproot@=\count127
+\leftroot@=\count128
 LaTeX Info: Redefining \overline on input line 375.
-\classnum@=\count122
-\DOTSCASE@=\count123
+\classnum@=\count129
+\DOTSCASE@=\count130
 LaTeX Info: Redefining \ldots on input line 472.
 LaTeX Info: Redefining \dots on input line 475.
 LaTeX Info: Redefining \cdots on input line 596.
-\Mathstrutbox@=\box26
-\strutbox@=\box27
-\big@size=\dimen107
+\Mathstrutbox@=\box27
+\strutbox@=\box28
+\big@size=\dimen112
 LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
-\macc@depth=\count124
-\c@MaxMatrixCols=\count125
+\macc@depth=\count131
+\c@MaxMatrixCols=\count132
 \dotsspace@=\muskip10
-\c@parentequation=\count126
-\dspbrk@lvl=\count127
-\tag@help=\toks18
-\row@=\count128
-\column@=\count129
-\maxfields@=\count130
-\andhelp@=\toks19
-\eqnshift@=\dimen108
-\alignsep@=\dimen109
-\tagshift@=\dimen110
-\tagwidth@=\dimen111
-\totwidth@=\dimen112
-\lineht@=\dimen113
-\@envbody=\toks20
+\c@parentequation=\count133
+\dspbrk@lvl=\count134
+\tag@help=\toks19
+\row@=\count135
+\column@=\count136
+\maxfields@=\count137
+\andhelp@=\toks20
+\eqnshift@=\dimen113
+\alignsep@=\dimen114
+\tagshift@=\dimen115
+\tagwidth@=\dimen116
+\totwidth@=\dimen117
+\lineht@=\dimen118
+\@envbody=\toks21
 \multlinegap=\skip44
 \multlinetaggap=\skip45
-\mathdisplay@stack=\toks21
+\mathdisplay@stack=\toks22
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 )
@@ -717,7 +735,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  T1/MinionPro-OsF/m/it --> T1/MinionPro-OsF/eb/it on inp
 ut line 169.
-\c@mv@tabular=\count131
+\c@mv@tabular=\count138
 LaTeX Font Info:    Overwriting symbol font `operators' in version `tabular'
 (Font)                  T1/MinionPro-OsF/m/n --> T1/MinionPro-TOsF/m/n on input
  line 171.
@@ -727,7 +745,7 @@ input line 172.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `tabular'
 (Font)                  OT1/cmr/m/it --> T1/MinionPro-TOsF/m/it on input line 1
 73.
-\c@mv@boldtabular=\count132
+\c@mv@boldtabular=\count139
 LaTeX Font Info:    Overwriting symbol font `operators' in version `boldtabular
 '
 (Font)                  T1/MinionPro-OsF/m/n --> T1/MinionPro-TOsF/eb/n on inpu
@@ -782,12 +800,12 @@ File: MinionPro-FontDef.sty 2007/02/01 v2.2 font definition macros
 ))) ("C:\Program Files\MiKTeX 2.9\tex\generic\pdftex\glyphtounicode.tex")
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\microtype.sty"
 Package: microtype 2016/05/14 v2.6a Micro-typographical refinements (RS)
-\MT@toks=\toks22
-\MT@count=\count133
+\MT@toks=\toks23
+\MT@count=\count140
 LaTeX Info: Redefining \textls on input line 774.
-\MT@outer@kern=\dimen114
+\MT@outer@kern=\dimen119
 LaTeX Info: Redefining \textmicrotypecontext on input line 1310.
-\MT@listname@count=\count134
+\MT@listname@count=\count141
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\microtype-pdftex.def"
 File: microtype-pdftex.def 2016/05/14 v2.6a Definitions specific to pdftex (RS)
@@ -824,8 +842,8 @@ Language: english 2017/01/24 v3.3q English support from the babel system
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
 File: babel.def 2016/04/23 3.9r Babel common definitions
-\babel@savecnt=\count135
-\U@D=\dimen115
+\babel@savecnt=\count142
+\U@D=\dimen120
 )
 \l@canadian = a dialect from \language\l@american 
 \l@australian = a dialect from \language\l@british 
@@ -833,7 +851,7 @@ File: babel.def 2016/04/23 3.9r Babel common definitions
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\apacite\apacite.sty"
 Package: apacite 2013/07/21 v6.03 APA citation
-\c@BibCnt=\count136
+\c@BibCnt=\count143
 \bibleftmargin=\skip47
 \bibindent=\skip48
 \bibparsep=\skip49
@@ -863,10 +881,10 @@ Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
-\Gread@gobject=\count137
+\Gread@gobject=\count144
 ))
-\Gin@req@height=\dimen116
-\Gin@req@width=\dimen117
+\Gin@req@height=\dimen121
+\Gin@req@width=\dimen122
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
 Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
@@ -874,77 +892,77 @@ Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
 Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 67.
-\captionmargin=\dimen118
-\captionmargin@=\dimen119
-\captionwidth=\dimen120
-\caption@tempdima=\dimen121
-\caption@indent=\dimen122
-\caption@parindent=\dimen123
-\caption@hangindent=\dimen124
+\captionmargin=\dimen123
+\captionmargin@=\dimen124
+\captionwidth=\dimen125
+\caption@tempdima=\dimen126
+\caption@indent=\dimen127
+\caption@parindent=\dimen128
+\caption@hangindent=\dimen129
 )
-\c@ContinuedFloat=\count138
+\c@ContinuedFloat=\count145
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty"
 Package: booktabs 2005/04/14 v1.61803 publication quality tables
-\heavyrulewidth=\dimen125
-\lightrulewidth=\dimen126
-\cmidrulewidth=\dimen127
-\belowrulesep=\dimen128
-\belowbottomsep=\dimen129
-\aboverulesep=\dimen130
-\abovetopsep=\dimen131
-\cmidrulesep=\dimen132
-\cmidrulekern=\dimen133
-\defaultaddspace=\dimen134
-\@cmidla=\count139
-\@cmidlb=\count140
-\@aboverulesep=\dimen135
-\@belowrulesep=\dimen136
-\@thisruleclass=\count141
-\@lastruleclass=\count142
-\@thisrulewidth=\dimen137
+\heavyrulewidth=\dimen130
+\lightrulewidth=\dimen131
+\cmidrulewidth=\dimen132
+\belowrulesep=\dimen133
+\belowbottomsep=\dimen134
+\aboverulesep=\dimen135
+\abovetopsep=\dimen136
+\cmidrulesep=\dimen137
+\cmidrulekern=\dimen138
+\defaultaddspace=\dimen139
+\@cmidla=\count146
+\@cmidlb=\count147
+\@aboverulesep=\dimen140
+\@belowrulesep=\dimen141
+\@thisruleclass=\count148
+\@lastruleclass=\count149
+\@thisrulewidth=\dimen142
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\tabularx.sty"
 Package: tabularx 2016/02/03 v2.11 `tabularx' package (DPC)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
 Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
-\col@sep=\dimen138
-\extrarowheight=\dimen139
-\NC@list=\toks23
+\col@sep=\dimen143
+\extrarowheight=\dimen144
+\NC@list=\toks24
 \extratabsurround=\skip52
 \backup@length=\skip53
 )
-\TX@col@width=\dimen140
-\TX@old@table=\dimen141
-\TX@old@col=\dimen142
-\TX@target=\dimen143
-\TX@delta=\dimen144
-\TX@cols=\count143
-\TX@ftn=\toks24
+\TX@col@width=\dimen145
+\TX@old@table=\dimen146
+\TX@old@col=\dimen147
+\TX@target=\dimen148
+\TX@delta=\dimen149
+\TX@cols=\count150
+\TX@ftn=\toks25
 )
 (figures_and_tables.aux)
 \openout1 = `figures_and_tables.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 40.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Info: Redefining \microtypecontext on input line 34.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Info: Redefining \microtypecontext on input line 40.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -958,7 +976,7 @@ Package microtype Info: No adjustment of character kerning.
 (C:\Users\Nils\AppData\Roaming\MiKTeX\2.9\tex\latex\MinionPro\mt-MinionPro.cfg
 File: mt-MinionPro.cfg 2005/02/07 v1.0 microtype config file for MinionPro
 )
-\c@maskedRefs=\count144
+\c@maskedRefs=\count151
 ("C:\Program Files\MiKTeX 2.9\tex\latex\apacite\english.apc"
 File: english.apc 2013/07/21 v6.03 apacite language file
 LaTeX Info: Redefining \BPBI on input line 129.
@@ -966,17 +984,17 @@ LaTeX Info: Redefining \BHBI on input line 130.
 )
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count145
-\scratchdimen=\dimen145
-\scratchbox=\box28
-\nofMPsegments=\count146
-\nofMParguments=\count147
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count148
-\MPscratchDim=\dimen146
-\MPnumerator=\count149
-\makeMPintoPDFobject=\count150
-\everyMPtoPDFconversion=\toks26
+\scratchcounter=\count152
+\scratchdimen=\dimen150
+\scratchbox=\box29
+\nofMPsegments=\count153
+\nofMParguments=\count154
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count155
+\MPscratchDim=\dimen151
+\MPnumerator=\count156
+\makeMPintoPDFobject=\count157
+\everyMPtoPDFconversion=\toks27
 ) ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
 Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -1024,8 +1042,18 @@ G,.JBIG2,.JB2,.eps]
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
+
+
+pdfTeX warning: pdflatex (file ../figures/figure-1.pdf): PDF inclusion: found P
+DF version <1.7>, but at most version <1.5> allowed
+<../figures/figure-1.pdf, id=1, 390.0171pt x 184.89075pt>
+File: ../figures/figure-1.pdf Graphic file (type pdf)
+
+<use ../figures/figure-1.pdf>
+Package pdftex.def Info: ../figures/figure-1.pdf used on input line 44.
+(pdftex.def)             Requested size: 390.01614pt x 184.89027pt.
 LaTeX Font Info:    Try loading font information for T1+MinionPro-TOsF on input
- line 45.
+ line 56.
 
 (C:\Users\Nils\AppData\Roaming\MiKTeX\2.9\tex\latex\MinionPro\t1minionpro-tosf.
 fd
@@ -1043,7 +1071,7 @@ Package microtype Warning: Unknown slot number of character
 (microtype)                `microtype.cfg/211(protrusion)'.
 
 LaTeX Font Info:    Try loading font information for OML+MinionPro-TOsF on inpu
-t line 45.
+t line 56.
 
 (C:\Users\Nils\AppData\Roaming\MiKTeX\2.9\tex\latex\MinionPro\omlminionpro-tosf
 .fd
@@ -1055,27 +1083,23 @@ OsF.
 File: MinionPro-FontDef.sty 2007/02/01 v2.2 font definition macros
 ))
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-pdfTeX warning: pdflatex (file ../figures/figure-1.pdf): PDF inclusion: found P
+pdfTeX warning: pdflatex (file ../figures/figure-2.pdf): PDF inclusion: found P
 DF version <1.7>, but at most version <1.5> allowed
-<../figures/figure-1.pdf, id=1, 390.0171pt x 227.6505pt>
-File: ../figures/figure-1.pdf Graphic file (type pdf)
-
-<use ../figures/figure-1.pdf>
-Package pdftex.def Info: ../figures/figure-1.pdf used on input line 82.
-(pdftex.def)             Requested size: 390.01614pt x 227.64993pt.
-
-<../figures/figure-2.pdf, id=2, 389.455pt x 454.69875pt>
+<../figures/figure-2.pdf, id=2, 390.0171pt x 227.6505pt>
 File: ../figures/figure-2.pdf Graphic file (type pdf)
 
 <use ../figures/figure-2.pdf>
-Package pdftex.def Info: ../figures/figure-2.pdf used on input line 109.
+Package pdftex.def Info: ../figures/figure-2.pdf used on input line 93.
+(pdftex.def)             Requested size: 390.01614pt x 227.64993pt.
+
+<../figures/figure-3.pdf, id=3, 389.455pt x 454.69875pt>
+File: ../figures/figure-3.pdf Graphic file (type pdf)
+
+<use ../figures/figure-3.pdf>
+Package pdftex.def Info: ../figures/figure-3.pdf used on input line 122.
 (pdftex.def)             Requested size: 389.45404pt x 454.69763pt.
 LaTeX Font Info:    Try loading font information for TS1+MinionPro-OsF on input
- line 112.
+ line 125.
 
 (C:\Users\Nils\AppData\Roaming\MiKTeX\2.9\tex\latex\MinionPro\ts1minionpro-osf.
 fd
@@ -1090,27 +1114,64 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `MinionPro-OsF' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
+ <../figures/figure-4.pdf, id=4, 389.455pt x 255.95625pt>
+File: ../figures/figure-4.pdf Graphic file (type pdf)
+
+<use ../figures/figure-4.pdf>
+Package pdftex.def Info: ../figures/figure-4.pdf used on input line 131.
+(pdftex.def)             Requested size: 389.45404pt x 255.95561pt.
+
+<../figures/figure-5.pdf, id=5, 389.455pt x 226.8475pt>
+File: ../figures/figure-5.pdf Graphic file (type pdf)
+
+<use ../figures/figure-5.pdf>
+Package pdftex.def Info: ../figures/figure-5.pdf used on input line 157.
+(pdftex.def)             Requested size: 389.45404pt x 226.84694pt.
+
+<../figures/figure-6.pdf, id=6, 389.455pt x 226.8475pt>
+File: ../figures/figure-6.pdf Graphic file (type pdf)
+
+<use ../figures/figure-6.pdf>
+Package pdftex.def Info: ../figures/figure-6.pdf used on input line 166.
+(pdftex.def)             Requested size: 389.45404pt x 226.84694pt.
+
+<../figures/figure-7.pdf, id=7, 389.455pt x 454.69875pt>
+File: ../figures/figure-7.pdf Graphic file (type pdf)
+
+<use ../figures/figure-7.pdf>
+Package pdftex.def Info: ../figures/figure-7.pdf used on input line 175.
+(pdftex.def)             Requested size: 389.45404pt x 454.69763pt.
+
+<../figures/figure-8.pdf, id=8, 389.455pt x 226.8475pt>
+File: ../figures/figure-8.pdf Graphic file (type pdf)
+
+<use ../figures/figure-8.pdf>
+Package pdftex.def Info: ../figures/figure-8.pdf used on input line 184.
+(pdftex.def)             Requested size: 389.45404pt x 226.84694pt.
  [1{C:/Users/Nils/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <../figure
-s/figure-1.pdf>] [2] [3] [4 <../figures/figure-2.pdf>] [5]
-(figures_and_tables.aux) ) 
+s/figure-1.pdf>] [2] [3 <../figures/figure-2.pdf>] [4] [5 <../figures/figure-3.
+pdf>] [6 <../figures/figure-4.pdf>] [7 <../figures/figure-5.pdf>] [8 <../figure
+s/figure-6.pdf>] [9 <../figures/figure-7.pdf>]
+[10 <../figures/figure-8.pdf>] (figures_and_tables.aux) ) 
 Here is how much of TeX's memory you used:
- 9831 strings out of 493329
- 159219 string characters out of 3139067
- 235501 words of memory out of 3000000
- 13002 multiletter control sequences out of 15000+200000
- 244776 words of font info for 198 fonts, out of 3000000 for 9000
+ 10152 strings out of 493329
+ 165244 string characters out of 3139067
+ 245860 words of memory out of 3000000
+ 13235 multiletter control sequences out of 15000+200000
+ 269014 words of font info for 266 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,12n,77p,936b,705s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/Nils/AppData/Roaming/MiKTeX/2.9/fonts/enc/d
-vips/MinionPro/base-MinionPro-ad.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvi
-ps/mnsymbol/MnSymbolD.enc}{C:/Users/Nils/AppData/Roaming/MiKTeX/2.9/fonts/enc/d
-vips/MinionPro/base-MinionPro-aa.enc}<C:/Users/Nils/AppData/Roaming/MiKTeX/2.9/
-fonts/type1/Adobe/MinionPro/MinionPro-It.pfb><C:/Users/Nils/AppData/Roaming/MiK
-TeX/2.9/fonts/type1/Adobe/MinionPro/MinionPro-Regular.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/mnsymbol/MnSymbol10.pfb>
-Output written on figures_and_tables.pdf (5 pages, 409627 bytes).
+ 43i,12n,77p,957b,674s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/Nils/AppData
+/Roaming/MiKTeX/2.9/fonts/enc/dvips/MinionPro/base-MinionPro-ad.enc}{C:/Program
+ Files/MiKTeX 2.9/fonts/enc/dvips/mnsymbol/MnSymbolD.enc}{C:/Users/Nils/AppData
+/Roaming/MiKTeX/2.9/fonts/enc/dvips/MinionPro/base-MinionPro-aa.enc}<C:/Users/N
+ils/AppData/Roaming/MiKTeX/2.9/fonts/type1/Adobe/MinionPro/MinionPro-It.pfb><C:
+/Users/Nils/AppData/Roaming/MiKTeX/2.9/fonts/type1/Adobe/MinionPro/MinionPro-Re
+gular.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/mnsymbol/MnSymbol10.p
+fb>
+Output written on figures_and_tables.pdf (10 pages, 1213825 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
+ 176 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 41995 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 44073 words of extra memory for PDF output out of 51595 (max. 10000000)
 

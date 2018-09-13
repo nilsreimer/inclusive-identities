@@ -1,5 +1,4 @@
 *.Rproj
-github.Rproj
 *.Rproj.user
 *.Rhistory
 *.RData
@@ -13,6 +12,6 @@ github.Rproj
 *.toc
 *.blg
 models/q1_mc_fit.rds
+models/q2q3_mc_fit.rds
 models/impute_data_fit.rds
-models/m4_stan_imputed.rds
-.Rproj.user
+data/old/*
