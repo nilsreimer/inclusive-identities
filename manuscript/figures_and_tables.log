@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.7)  13 SEP 2018 11:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.7)  10 OCT 2018 18:54
 entering extended mode
 **./figures_and_tables.tex
 (figures_and_tables.tex
@@ -1154,11 +1154,11 @@ pdf>] [6 <../figures/figure-4.pdf>] [7 <../figures/figure-5.pdf>] [8 <../figure
 s/figure-6.pdf>] [9 <../figures/figure-7.pdf>]
 [10 <../figures/figure-8.pdf>] (figures_and_tables.aux) ) 
 Here is how much of TeX's memory you used:
- 10152 strings out of 493329
- 165244 string characters out of 3139067
- 245860 words of memory out of 3000000
+ 10163 strings out of 493329
+ 165538 string characters out of 3139067
+ 246860 words of memory out of 3000000
  13235 multiletter control sequences out of 15000+200000
- 269014 words of font info for 266 fonts, out of 3000000 for 9000
+ 270395 words of font info for 275 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,12n,77p,957b,674s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Nils/AppData
@@ -1169,7 +1169,7 @@ ils/AppData/Roaming/MiKTeX/2.9/fonts/type1/Adobe/MinionPro/MinionPro-It.pfb><C:
 /Users/Nils/AppData/Roaming/MiKTeX/2.9/fonts/type1/Adobe/MinionPro/MinionPro-Re
 gular.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/mnsymbol/MnSymbol10.p
 fb>
-Output written on figures_and_tables.pdf (10 pages, 1213825 bytes).
+Output written on figures_and_tables.pdf (10 pages, 1214390 bytes).
 PDF statistics:
  176 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

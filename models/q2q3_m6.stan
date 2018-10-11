@@ -53,7 +53,7 @@ transformed parameters {
     for (m in 1:N_col)
       Y[n, m] = y[(m - 1) * N_row + n];
       
-  // Missing: Regression
+  // Regression
   for (n in 1:N_row)
     for (m in 1:N_col) {
       Mu[n,m] = b_0[m] + b_j[jj[n],m]*sigma_j[m] + b_k[kk[n],m]*sigma_k[m] + b_q1[kk[n],m]*x_q1[n]*sigma_q1_k[m];
@@ -81,7 +81,7 @@ model {
     sigma_q1_obc_k[m] ~ cauchy(0, 1);
   }
   Lcorr ~ lkj_corr_cholesky(1);
-  
+
   // Likelihood
   Y ~ multi_normal_cholesky(Mu, diag_pre_multiply(sigma, Lcorr));
 }
@@ -96,4 +96,3 @@ generated quantities {
   for (m in 1:N_col)
     R2[m] = variance(Mu[,m]) / ( variance(Mu[,m]) + variance(to_vector(Y[,m]) - to_vector(Mu[,m])) );
 }
-

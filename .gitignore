@@ -1,5 +1,5 @@
-*.Rproj
-*.Rproj.user
+github.Rproj
+.Rproj.user/
 *.Rhistory
 *.RData
 *.Ruserdata
@@ -14,4 +14,7 @@
 models/q1_mc_fit.rds
 models/q2q3_mc_fit.rds
 models/impute_data_fit.rds
-data/old/*
+data/old/
+.Rproj.user
+models/kfold/*llk_h.rds
+models/kfold/*llk.rds
