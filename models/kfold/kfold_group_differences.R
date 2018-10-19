@@ -1,5 +1,10 @@
 rm(list = ls())
 
+# Notes -------------------------------------------------------------------
+  # Caution! Running this script will take several days on most computers.
+  # Run read_rds("models/kfold/q1_elpd_kfold.rds") to skip to the results.
+
+
 # Library -----------------------------------------------------------------
   library(tidyverse); library(rstan); library(loo)
   

@@ -45,16 +45,18 @@ rm(list = ls())
     geom_ribbon(aes(group = interaction(.width, ig_caste)), colour = NA, fill = "white") +
     geom_ribbon(aes(group = interaction(.width, ig_caste)), colour = NA, alpha = 0.20) +
     geom_line() +
-    geom_point(size = 1) +
+    geom_point(aes(shape = ig_caste), size = 0.75) +
     scale_x_continuous(limits = c(1, 5), breaks = 1:5, minor_breaks = 0) +
     scale_y_continuous(limits = c(0, 1), breaks = seq(0, 1, 0.5)) +
     scale_colour_viridis_d(begin = 0.0, end = 0.7) +
     scale_fill_viridis_d(begin = 0.0, end = 0.7) +
+    scale_shape_manual(values = c("circle", "triangle", "square", "diamond filled")) +
     labs(
       x = "Amount",
       y ='Pr("us"|M5)',
       colour = "Ingroup:",
-      fill = "Ingroup:"
+      fill = "Ingroup:",
+      shape = "Ingroup:"
     ) +
     facet_grid(item ~ category) +
     coord_fixed(4) +

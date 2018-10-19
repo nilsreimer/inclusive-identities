@@ -11,9 +11,7 @@ github.Rproj
 *.lot
 *.toc
 *.blg
-models/q1_mc_fit.rds
-models/q2q3_mc_fit.rds
-models/impute_data_fit.rds
+models/*_fit.rds
 data/old/
 .Rproj.user
 models/kfold/*llk_h.rds

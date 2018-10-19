@@ -1,7 +1,8 @@
 rm(list = ls())
 
 # Notes -------------------------------------------------------------------
-
+  # Caution! Running this script will take several days on most computers.
+  # Run read_rds("models/kfold/q2q3_elpd_kfold.rds") to skip to the results.
 
 # Library -----------------------------------------------------------------
   library(tidyverse); library(rstan); library(tidybayes); library(loo)
@@ -73,111 +74,111 @@ rm(list = ls())
   }
 
 # Models ------------------------------------------------------------------
-  # # Model 0
-  # for (k in 1:10) {
-  #   print(paste("[", k, "/10] - Model 1", sep = ""))
-  #   fit <- stan(
-  #     "models/kfold/q2q3_m0_kfold.stan",
-  #     data = data_fold(k),
-  #     seed = seeds[1],
-  #     iter = 1000,
-  #     warmup = 750,
-  #     pars = c("log_lik_h")
-  #   )
-  #   if (k == 1) {
-  #     extract_log_lik(fit, parameter_name = "log_lik_h") %>%
-  #     list(.) %>%
-  #     write_rds(., "models/kfold/q2q3_m0_llk.rds")
-  #   } else {
-  #     extract_log_lik(fit, parameter_name = "log_lik_h") %>%
-  #     list(.) %>%
-  #     append(read_rds("models/kfold/q2q3_m0_llk.rds"), .) %>%
-  #     write_rds(., "models/kfold/q2q3_m0_llk.rds")
-  #   }
-  # }
-
-  # # Model 1
-  # for (k in 1:10) {
-  #   print(paste("[", k, "/10] - Model 1", sep = ""))
-  #   fit <- stan(
-  #     "models/kfold/q2q3_m1_kfold.stan",
-  #     data = data_fold(k),
-  #     seed = seeds[2],
-  #     iter = 1000,
-  #     warmup = 750,
-  #     pars = c("log_lik_h")
-  #   )
-  #   if (k == 1) {
-  #     extract_log_lik(fit, parameter_name = "log_lik_h") %>%
-  #     list(.) %>%
-  #     write_rds(., "models/kfold/q2q3_m1_llk.rds")
-  #   } else {
-  #     extract_log_lik(fit, parameter_name = "log_lik_h") %>%
-  #     list(.) %>%
-  #     append(read_rds("models/kfold/q2q3_m1_llk.rds"), .) %>%
-  #     write_rds(., "models/kfold/q2q3_m1_llk.rds")
-  #   }
-  # }
-
-  # # Model 2
-  # for (k in 1:10) {
-  #   print(paste("[", k, "/10] - Model 2", sep = ""))
-  #   fit <- stan(
-  #     "models/kfold/q2q3_m2_kfold.stan",
-  #     data = data_fold(k),
-  #     seed = seeds[3],
-  #     iter = 1000,
-  #     warmup = 750,
-  #     pars = c("log_lik_h")
-  #   )
-  #   if (k == 1) {
-  #     extract_log_lik(fit, parameter_name = "log_lik_h") %>%
-  #     list(.) %>%
-  #     write_rds(., "models/kfold/q2q3_m2_llk.rds")
-  #   } else {
-  #     extract_log_lik(fit, parameter_name = "log_lik_h") %>%
-  #     list(.) %>%
-  #     append(read_rds("models/kfold/q2q3_m2_llk.rds"), .) %>%
-  #     write_rds(., "models/kfold/q2q3_m2_llk.rds")
-  #   }
-  # }
-  
-  # # Model 3
-  # for (k in 1:10) {
-  #   print(paste("[", k, "/10] - Model 3", sep = ""))
-  #   fit <- stan(
-  #     "models/kfold/q2q3_m3_kfold.stan",
-  #     data = data_fold(k), 
-  #     seed = seeds[4],
-  #     iter = 1000, 
-  #     warmup = 750, 
-  #     pars = c("log_lik_h")
-  #   )
-  #   if (k == 1) {
-  #     extract_log_lik(fit, parameter_name = "log_lik_h") %>% 
-  #     list(.) %>%
-  #     write_rds(., "models/kfold/q2q3_m3_llk.rds")
-  #   } else {
-  #     extract_log_lik(fit, parameter_name = "log_lik_h") %>%
-  #     list(.) %>%
-  #     append(read_rds("models/kfold/q2q3_m3_llk.rds"), .) %>%
-  #     write_rds(., "models/kfold/q2q3_m3_llk.rds")
-  #   }
-  # }
-  
-  # Model 4
-  for (k in 5:10) {
-    print(paste("[", k, "/10] - Model 4", sep = ""))
+  # Model 0
+  for (k in 1:10) {
+    print(paste("[", k, "/10] - Model 1", sep = ""))
     fit <- stan(
-      "models/kfold/q2q3_m4_kfold.stan",
-      data = data_fold(k), 
-      seed = seeds[5],
-      iter = 1000, 
-      warmup = 750, 
+      "models/kfold/q2q3_m0_kfold.stan",
+      data = data_fold(k),
+      seed = seeds[1],
+      iter = 1000,
+      warmup = 750,
       pars = c("log_lik_h")
     )
     if (k == 1) {
-      extract_log_lik(fit, parameter_name = "log_lik_h") %>% 
+      extract_log_lik(fit, parameter_name = "log_lik_h") %>%
+      list(.) %>%
+      write_rds(., "models/kfold/q2q3_m0_llk.rds")
+    } else {
+      extract_log_lik(fit, parameter_name = "log_lik_h") %>%
+      list(.) %>%
+      append(read_rds("models/kfold/q2q3_m0_llk.rds"), .) %>%
+      write_rds(., "models/kfold/q2q3_m0_llk.rds")
+    }
+  }
+
+  # Model 1
+  for (k in 1:10) {
+    print(paste("[", k, "/10] - Model 1", sep = ""))
+    fit <- stan(
+      "models/kfold/q2q3_m1_kfold.stan",
+      data = data_fold(k),
+      seed = seeds[2],
+      iter = 1000,
+      warmup = 750,
+      pars = c("log_lik_h")
+    )
+    if (k == 1) {
+      extract_log_lik(fit, parameter_name = "log_lik_h") %>%
+      list(.) %>%
+      write_rds(., "models/kfold/q2q3_m1_llk.rds")
+    } else {
+      extract_log_lik(fit, parameter_name = "log_lik_h") %>%
+      list(.) %>%
+      append(read_rds("models/kfold/q2q3_m1_llk.rds"), .) %>%
+      write_rds(., "models/kfold/q2q3_m1_llk.rds")
+    }
+  }
+
+  # Model 2
+  for (k in 1:10) {
+    print(paste("[", k, "/10] - Model 2", sep = ""))
+    fit <- stan(
+      "models/kfold/q2q3_m2_kfold.stan",
+      data = data_fold(k),
+      seed = seeds[3],
+      iter = 1000,
+      warmup = 750,
+      pars = c("log_lik_h")
+    )
+    if (k == 1) {
+      extract_log_lik(fit, parameter_name = "log_lik_h") %>%
+      list(.) %>%
+      write_rds(., "models/kfold/q2q3_m2_llk.rds")
+    } else {
+      extract_log_lik(fit, parameter_name = "log_lik_h") %>%
+      list(.) %>%
+      append(read_rds("models/kfold/q2q3_m2_llk.rds"), .) %>%
+      write_rds(., "models/kfold/q2q3_m2_llk.rds")
+    }
+  }
+
+  # Model 3
+  for (k in 1:10) {
+    print(paste("[", k, "/10] - Model 3", sep = ""))
+    fit <- stan(
+      "models/kfold/q2q3_m3_kfold.stan",
+      data = data_fold(k),
+      seed = seeds[4],
+      iter = 1000,
+      warmup = 750,
+      pars = c("log_lik_h")
+    )
+    if (k == 1) {
+      extract_log_lik(fit, parameter_name = "log_lik_h") %>%
+      list(.) %>%
+      write_rds(., "models/kfold/q2q3_m3_llk.rds")
+    } else {
+      extract_log_lik(fit, parameter_name = "log_lik_h") %>%
+      list(.) %>%
+      append(read_rds("models/kfold/q2q3_m3_llk.rds"), .) %>%
+      write_rds(., "models/kfold/q2q3_m3_llk.rds")
+    }
+  }
+
+  # Model 4
+  for (k in 1:10) {
+    print(paste("[", k, "/10] - Model 4", sep = ""))
+    fit <- stan(
+      "models/kfold/q2q3_m4_kfold.stan",
+      data = data_fold(k),
+      seed = seeds[5],
+      iter = 1000,
+      warmup = 750,
+      pars = c("log_lik_h")
+    )
+    if (k == 1) {
+      extract_log_lik(fit, parameter_name = "log_lik_h") %>%
       list(.) %>%
       write_rds(., "models/kfold/q2q3_m4_llk.rds")
     } else {
@@ -187,20 +188,20 @@ rm(list = ls())
       write_rds(., "models/kfold/q2q3_m4_llk.rds")
     }
   }
-  
+
   # Model 5
   for (k in 1:10) {
     print(paste("[", k, "/10] - Model 5", sep = ""))
     fit <- stan(
       "models/kfold/q2q3_m5_kfold.stan",
-      data = data_fold(k), 
+      data = data_fold(k),
       seed = seeds[6],
-      iter = 1000, 
-      warmup = 750, 
+      iter = 1000,
+      warmup = 750,
       pars = c("log_lik_h")
     )
     if (k == 1) {
-      extract_log_lik(fit, parameter_name = "log_lik_h") %>% 
+      extract_log_lik(fit, parameter_name = "log_lik_h") %>%
       list(.) %>%
       write_rds(., "models/kfold/q2q3_m5_llk.rds")
     } else {
