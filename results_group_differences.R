@@ -52,14 +52,9 @@ rm(list = ls())
 # Compare -----------------------------------------------------------------
   # Compare models
   mc_fit <- list(m0_stan, m1_stan, m2_stan, m3_stan)
-  mc_llk <- map(mc_fit, extract_log_lik, merge_chains = FALSE)
-  mc_loo <- map(mc_llk, ~loo(., r_eff = relative_eff(exp(.)), cores = 4))
-
-  compare(x = mc_loo)
   
   # Export
   write_rds(mc_fit, "models/q1_mc_fit.rds")
-  write_rds(mc_loo, "models/q1_mc_loo.rds")
 
 
 # Predict -----------------------------------------------------------------

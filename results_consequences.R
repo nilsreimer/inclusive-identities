@@ -93,22 +93,10 @@ rm(list = ls())
   # Compare models
   mc_fit <- list(m0_stan, m1_stan, m2_stan, m3_stan, m4_stan, m5_stan, m6_stan)
   mc_R2  <- map(mc_fit, ~gather_draws(., R2[item]) %>% median_hdi(.width = .97))
-  mc_llk <- map(mc_fit, extract_log_lik, merge_chains = FALSE)
-  mc_loo <- map(mc_llk, ~loo(., r_eff = relative_eff(exp(.)), cores = 4))
 
   # Export
   write_rds(mc_fit, "models/q2q3_mc_fit.rds")
-  write_rds(mc_loo, "models/q2q3_mc_loo.rds")
-  
-  # Compare
-  compare(x = mc_loo)
-  compare(mc_loo[[1]], mc_loo[[2]])
-  compare(mc_loo[[2]], mc_loo[[3]])
-  compare(mc_loo[[3]], mc_loo[[4]])
-  compare(mc_loo[[4]], mc_loo[[5]])
-  compare(mc_loo[[5]], mc_loo[[6]])
-  compare(mc_loo[[6]], mc_loo[[7]])
-  
+
   
 # Predict -----------------------------------------------------------------
   # Posterior draws
