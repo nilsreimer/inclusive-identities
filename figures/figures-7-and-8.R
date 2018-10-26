@@ -70,7 +70,7 @@ rm(list = ls())
     coord_fixed(ratio = 1/2, xlim = c(0.9,7.1), ylim = c(0.8, 4), expand = FALSE) +
     facet_grid(group ~ .) +
     labs(
-      x = "Perceived life difficulty",
+      x = "Perceived (dis-)advantage",
       y = "Ingroup"
     ) +
     theme_grey(base_size = 10) +

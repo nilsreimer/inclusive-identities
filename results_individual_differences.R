@@ -11,7 +11,6 @@ rm(list = ls())
   # value (from the posterior distribution of the imputation model) for each 
   # missing value (in the original dataset).
 
-  # Add note about SDO.
 
 # Library -----------------------------------------------------------------
   library(tidyverse); library(rstan); library(tidybayes); library(loo)
