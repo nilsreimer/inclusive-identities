@@ -61,9 +61,5 @@ rm(list = ls())
 # Export ------------------------------------------------------------------
   write_rds(d1, "data/d1.rds")
   write_rds(d2, "data/d2.rds")
-  
-  
-# Prepare -----------------------------------------------------------------
-  # Prepare data for analyses
-  # source("data/prepare_data_sdo.R")
-  # source("data/prepare_data_it.R")
+  write_csv(d1, "data/export/d1.csv")
+  write_csv(d2, "data/export/d2.csv")
