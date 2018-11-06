@@ -19,4 +19,3 @@ data/old/
 *.Rproj
 models/kfold/*llk_h.rds
 models/kfold/*llk.rds
-data/sessions/
