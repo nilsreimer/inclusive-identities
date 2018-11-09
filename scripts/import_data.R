@@ -1,7 +1,7 @@
 rm(list = ls())
 
 # Notes -------------------------------------------------------------------
-  # See materials/script.pdf (Appendix D) for items and answer options.
+  # See materials/materials.pdf (Appendix D) for items and answer options.
 
   # To protect participants, we do not provide the raw data (data/sessions/)
   # with verbatim comments; this R script is thus not functional. Please import 

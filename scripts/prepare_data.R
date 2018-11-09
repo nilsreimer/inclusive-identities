@@ -1,7 +1,7 @@
 rm(list = ls())
 
 # Notes -------------------------------------------------------------------
-  #  See materials/script.pdf (Appendix D) for items and answer options.
+  #  See materials/materials.pdf (Appendix D) for items and answer options.
 
 
 # Library -----------------------------------------------------------------
