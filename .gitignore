@@ -1,7 +1,16 @@
 data/old/
 data/sessions/
+presentation/
+manuscript/*
+!manuscript/manuscript.pdf
+!manuscript/manuscript.tex
+!manuscript/appendices.pdf
+!manuscript/appendices.tex
+!manuscript/references.bib
 models/q1_mc_fit.rds
 models/q2q3_mc_fit.rds
 models/impute_data_fit.rds
 models/kfold/*llk_h.rds
 models/kfold/*llk.rds
+scripts/calculate_descriptive_statistics.R
+.Rproj.user
