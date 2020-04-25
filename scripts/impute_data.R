@@ -1,164 +1,147 @@
 rm(list = ls())
 
 # Notes -------------------------------------------------------------------
-  # This script imputes missing responses (n = 66) for the intergroup contact
-  # variables, and returns a data frame with both observed responses and 
-  # draws from the posterior distribution for missing responses. 
+
+  #########################################################################
+  # This script imputes missing responses (n = 66) for the intergroup     #
+  # contact variables, and returns a data frame with both observed        #
+  # responses and draws from the posterior distribution for missing       #
+  # responses.                                                            # 
+  #########################################################################
 
 # Library -----------------------------------------------------------------
-  library(tidyverse); library(rstan); library(tidybayes)
+  
+  # Load packages
+  library(tidyverse); library(rstan)
 
   # Stan options
-  options(mc.cores = parallel::detectCores())
+  n_cores <- 8L
+  options(mc.cores = n_cores)
   rstan_options(auto_write = TRUE)
   seed = 70475734
 
 
-# Import ------------------------------------------------------------------
-  d2 <- read_rds("data/d2.rds") %>%
-        select(participant, ig_caste, q4:q23)
+# Prepare -----------------------------------------------------------------
+
+  # Import data
+  d2 <- read_rds("data/d2.rds") %>% select(participant, ig_caste, q4:q23)
   
   # Prepare data (long format)
   dl <- d2 %>%
-    gather("item", "response", q4:q23) %>%
-    mutate(item = str_extract(item, "[0-9]+") %>% as.integer()) %>% 
-    arrange(participant, item) %>%
-    mutate(ii = 1:n()) %>%
-    select(ii, participant, item, response)
+    pivot_longer(
+      -participant:-ig_caste,
+      names_to = "item",
+      names_prefix = "q",
+      names_ptypes = list(item = integer()),
+      values_to = "x_obs"
+    ) %>% 
+    arrange(item, participant) %>%
+    rowid_to_column("ii") %>% 
+    select(ii, participant, ig_caste, item, x_obs)
   
   # Prepare data (wide format)
   dw <- d2 %>%
     mutate(
-      x_obc = ifelse(ig_caste == "obc", 1L, 0L),
-      x_scst = ifelse(ig_caste == "scst", 1L, 0L)
+      kk = as.integer(factor(ig_caste))
     ) %>%
-    select(participant, x_obc, x_scst) %>%
+    select(participant, ig_caste, kk) %>%
     arrange(participant)
   
-  # Summarise
-  ds <- dl %>% 
-    group_by(item) %>% 
-    summarise_at(vars(response), funs(mean, sd), na.rm = TRUE)
+  # Standardize
+  dl <- dl %>% 
+    group_by(ig_caste, item) %>% 
+    mutate(
+      z_obs = (x_obs - mean(x_obs, na.rm = TRUE))/sd(x_obs, na.rm = TRUE)
+    ) %>% 
+    ungroup()
   
   # Compose data list
-  data_list <- list(
-    # Numbers
-    N_row = n_distinct(dl$participant),
-    N_col = n_distinct(dl$item),
-    N_mis = sum(is.na(dl$response)),
-    N_obs = sum(!is.na(dl$response)),
-    # Indices
-    ii_mis  = dl$ii[is.na(dl$response)],
-    ii_obs  = dl$ii[!is.na(dl$response)],
-    ii_item = dl$item[!is.na(dl$response)] - 3,
-    # Vectors
-    x_obc = dw$x_obc,
-    x_scst = dw$x_scst,
-    x_mean = ds$mean,
-    x_sd = ds$sd,
-    x_obs = dl$response[!is.na(dl$response)]
+  data_list <- with(dl, list(
+      N_row = n_distinct(participant),
+      N_col = n_distinct(item),
+      N_obs = sum(!is.na(x_obs)),
+      N_mis = sum(is.na(x_obs)),
+      ii_obs = ii[!is.na(x_obs)],
+      ii_mis = ii[is.na(x_obs)],
+      x_obs = z_obs[!is.na(x_obs)]
+    )) %>% 
+    append(
+      with(dw, list(
+        K = n_distinct(kk),
+        kk = kk
+      ))
+    )
+  
+
+# Run ---------------------------------------------------------------------
+
+  # Run model
+  fit <- stan(
+    "models/impute_data.stan",
+    data = data_list,
+    iter = 1000 + 4000/n_cores, 
+    warmup = 1000,
+    chains = n_cores,
+    init = function(chain_id) list(
+      x_mu = array(0, dim = c(3, 20)),
+      x_sigma = array(1, dim = c(3, 20))
+    ),
+    seed = seed
   )
   
-# Model -------------------------------------------------------------------
-  # Initial values
-  X <- dl %>% 
-       select(-ii) %>% 
-       spread(item, response) %>% 
-       select(-participant) %>% 
-       data.matrix()
-  estimates <- function(X, data_list, perturb = FALSE){
-    if(perturb) X <- X + rnorm(length(X), 0, 1)
-    list(
-      b_0     = rnorm(data_list$N_col, 0, 1),
-      b_obc   = rnorm(data_list$N_col, 0, 1),
-      b_scst  = rnorm(data_list$N_col, 0, 1),
-      x_sigma = rep(1, data_list$N_col),
-      x_mis   = rnorm(data_list$N_mis, 0, 1),
-      Lcorr   = t(chol(cor(X, use = "pairwise.complete")))
-    ) %>% return()
-  }
-  inits <- function(chain_id){
-    values <- estimates(X, data_list, perturb = chain_id > 1)
-    return(values)
-  }
-  
-  # Model
-  fit <- stan("models/impute_data.stan", data = data_list, seed = seed,
-              iter = 2000, warmup = 1000,
-              pars = c("X", "Mu", "Lcorr"), include = FALSE)
+  # Inspect
+  check_hmc_diagnostics(fit)
+  stan_rhat(fit, pars = c("x_mu", "x_sigma", "L_Omega", "x_mis"))
+  print(fit, pars = "x_mu")
+  print(fit, pars = "x_sigma")
+  print(fit, pars = "Rho")
+  print(fit, pars = "x_mis")
 
 
-# Prepare -----------------------------------------------------------------
+# Extract -----------------------------------------------------------------
+
   # Extract posterior draws
-  d_imp <- fit %>% 
-    spread_draws(x_mis[ii]) %>%
-    ungroup() %>% 
-    mutate(ii = map_int(ii, ~data_list$ii_mis[.])) %>%
-    rename(x_imp = x_mis) %>%
-    select(.draw, ii, x_imp)
-  
-  # Rescale posterior draws
-  d_imp <- d_imp %>%
-    left_join(dl %>% select(ii, item), by = "ii") %>%
-    left_join(ds, by = "item") %>%
-    mutate(x_imp = x_imp * sd + mean) %>%
-    select(.draw, ii, x_imp)
-  
-  # Code contact variables
-  d_obs <- dl %>%
-    mutate(
-      category = case_when(
-        item <=  8 ~ 3L,
-        item <= 13 ~ 2L,
-        item <= 18 ~ 1L,
-        item <= 23 ~ 4L
-      ),
-      item = case_when(
-        item %in% seq(4, 19, 5) ~ "cq",
-        item %in% seq(5, 20, 5) ~ "pc",
-        item %in% seq(6, 21, 5) ~ "nc",
-        TRUE ~ "of"
-      ),
-      x_obs = response,
-      missing = is.na(response)
-    ) %>%
-    select(ii, participant, category, item, x_obs, missing)
+  dl_imp <- as.data.frame(fit, pars = "x_imp") %>% 
+    rowid_to_column(".draw") %>% 
+    pivot_longer(
+      -.draw,
+      names_to = "ii",
+      names_pattern = "x_imp\\[([0-9]*)\\]",
+      names_ptypes = list(ii = integer()),
+      values_to = "z_imp"
+    )
   
   # Merge with observed responses
-  d_mis <- d_obs %>%
-    group_by(participant, category, item) %>%
-    filter(mean(missing) > 0) %>%
-    expand(.draw = 1:4000, ii) %>%
-    ungroup() %>%
-    left_join(d_imp, by = c(".draw", "ii")) %>%
-    left_join(d_obs, by = c("participant", "category", "item", "ii")) %>%
-    mutate(response = ifelse(missing, x_imp, x_obs)) %>%
-    group_by(participant, category, item, .draw) %>%
-    summarise(response = mean(response)) %>%
-    ungroup() %>%
-    select(-.draw) %>%
-    mutate(missing = TRUE)
+  dl_imp <- dl_imp %>% 
+    left_join(dl, by = "ii") %>% 
+    group_by(.draw, ig_caste, item) %>% 
+    mutate(
+      x_imp = z_imp * sd(x_obs, na.rm = TRUE) + mean(x_obs, na.rm = TRUE)
+    ) %>% 
+    ungroup() %>% 
+    mutate(
+      category = case_when(
+        item %in% 4:8 ~ 3L,
+        item %in% 9:13 ~ 2L,
+        item %in% 14:18 ~ 1L,
+        item %in% 19:23 ~ 4L
+      ),
+      item = case_when(
+        item %in% c(4L,  9L, 14L, 19L) ~ "cq",
+        item %in% c(5L, 10L, 15L, 20L) ~ "pc",
+        item %in% c(6L, 11L, 16L, 21L) ~ "nc",
+        item %in% c(7L, 12L, 17L, 22L) ~ "of",
+        item %in% c(8L, 13L, 18L, 23L) ~ "of",
+      ),
+      item = factor(item, levels = c("cq", "pc", "nc", "of"))
+    ) %>% 
+    select(participant, ig_caste, category, item, x_obs, z_obs, .draw, x_imp, z_imp) %>% 
+    arrange(.draw, participant, category, item)
   
-  # Observed responses
-  d_obs <- d_obs %>%
-    group_by(participant, category, item) %>%
-    filter(mean(missing) == 0) %>%
-    summarise(response = mean(x_obs)) %>%
-    ungroup() %>%
-    mutate(missing = FALSE)
-  
-  # Merge imputed and observed responses
-  d2_impute <- bind_rows(d_obs, d_mis) %>%
-    left_join(
-      d_obs %>% group_by(item) %>% summarise_at(vars(response), funs(mean, sd)),
-      by = "item"
-    ) %>%
-    mutate(z_response = (response - mean) / sd) %>%
-    select(participant, category, item, response, missing, z_response, mean, sd)
-  
+  # Simplify
+  dl_imp <- dl_imp %>% 
+    mutate(.draw = if_else(is.na(x_obs), .draw, NA_integer_)) %>% 
+    distinct()
 
-# Export ------------------------------------------------------------------
-  d2_impute %>% 
-    mutate(item = ordered(item, levels = c("cq", "pc", "nc", "of"))) %>%
-    arrange(participant, category, item) %>%
-    write_rds("data/d2_impute.rds")
+  # Export
+  write_rds(dl_imp, "results/ic_impute.rds")

@@ -1,23 +1,26 @@
 rm(list = ls())
 
 # Library -----------------------------------------------------------------
+    
+  # Load packages
   library(tidyverse); library(tidybayes)
 
 
 # Import ------------------------------------------------------------------
+  
   # Estimated probabilites
-  post <- read_rds("models/q1_ic_post.rds")
+  post <- read_rds("results/q1_ic_post.rds")
   
 
 # Summarise ---------------------------------------------------------------
+  
   # Estimated probabilities
   d_est <- post %>%
     group_by(category, ig_caste, item, response) %>%
-    median_hdi(.width = c(.67, .89, .97)) %>%
+    median_hdi(p_est, .width = c(.67, .89, .97)) %>%
     ungroup() %>%
     mutate(
       ig_caste = case_when(
-        category %in% 3:4 & ig_caste %in% 1:2 ~ "GM/OBC",
         ig_caste == 1 ~ "GM",
         ig_caste == 2 ~ "OBC",
         ig_caste == 3 ~ "SC/ST"
@@ -39,9 +42,13 @@ rm(list = ls())
 
 
 # Figure ------------------------------------------------------------------
+
+  # Make figure
   d_est %>%
-    ggplot(., aes(x = response, y = p_est, ymin = .lower, ymax = .upper, 
-                  colour = ig_caste, fill = ig_caste)) +
+    ggplot(., aes(
+      x = response, y = p_est, ymin = .lower, ymax = .upper, 
+      colour = ig_caste, fill = ig_caste
+    )) +
     geom_ribbon(aes(group = interaction(.width, ig_caste)), colour = NA, fill = "white") +
     geom_ribbon(aes(group = interaction(.width, ig_caste)), colour = NA, alpha = 0.20) +
     geom_line() +
@@ -60,14 +67,29 @@ rm(list = ls())
     ) +
     facet_grid(item ~ category) +
     coord_fixed(4) +
-    theme_grey(base_size = 10) +
+    theme_grey(base_size = 10, base_line_size = 0.25) +
     theme(
       legend.position = "bottom",
       strip.background = element_rect(fill = NA, colour = NA),
-      axis.text.x = element_text(colour = "black"),
-      axis.text.y = element_text(colour = "black")
+      axis.text = element_text(colour = "black"),
+      axis.title = element_text(colour = "black"),
+      axis.ticks = element_line(colour = "black")
     )
   
-  # Export
-  ggsave(file = "figures/figure-4.pdf", width = 390/.pt, height = 90, units = "mm")
+
+# Export ------------------------------------------------------------------
+
+  # Export as .pdf
+  ggsave(
+    file = "figures/figure-4.pdf", 
+    device = cairo_pdf,
+    width = 390/.pt, height = 90, units = "mm"
+  )
+  
+  # Export as .png
+  ggsave(
+    file = "figures/figure-4.png", 
+    type = "cairo", dpi = 600,
+    width = 390/.pt, height = 90, units = "mm"
+  )
   

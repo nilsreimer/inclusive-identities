@@ -16,6 +16,7 @@ parameters {
   real b_0;
   vector[J] b_j;
   vector[K] b_k;
+  real b_scst;
   vector[4] b_scst_k;
   real<lower = 0> sigma_j;
   real<lower = 0> sigma_k;
@@ -27,7 +28,7 @@ transformed parameters {
   for (i in 1:N) {
     alpha[i] = b_0 + b_j[jj[i]]*sigma_j + b_k[kk[i]]*sigma_k;
     if (kk[i] <= 4) {
-      alpha[i] = alpha[i] + x_scst[i]*(b_scst_k[kk[i]]*sigma_scst_k);
+      alpha[i] += x_scst[i]*(b_scst + b_scst_k[kk[i]]*sigma_scst_k);
     }
   }
 }
@@ -35,19 +36,17 @@ model {
   b_0 ~ student_t(2.5, 0, 1);
   b_j ~ normal(0, 1);
   b_k ~ normal(0, 1);
+  b_scst ~ student_t(2.5, 0, 1);
   b_scst_k ~ normal(0, 1);
   sigma_j ~ cauchy(0, 1);
   sigma_k ~ cauchy(0, 1);
   sigma_scst_k ~ cauchy(0, 1);
   
-  for (i in 1:N_t)
-    y[ii_t[i]] ~ bernoulli_logit(alpha[ii_t[i]]);
+  for (i in ii_t)
+    y[i] ~ bernoulli_logit(alpha[i]);
 }
 generated quantities {
-  vector[N_t] log_lik_t;
-  vector[N_h] log_lik_h;
-  for (i in 1:N_t)
-    log_lik_t[i] = bernoulli_logit_lpmf(y[ii_t[i]] | alpha[ii_t[i]]);  
+  vector[N_h] log_lik;
   for (i in 1:N_h)
-    log_lik_h[i] = bernoulli_logit_lpmf(y[ii_h[i]] | alpha[ii_h[i]]);
+    log_lik[i] = bernoulli_logit_lpmf(y[ii_h[i]] | alpha[ii_h[i]]);
 }

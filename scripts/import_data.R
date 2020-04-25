@@ -8,11 +8,13 @@ rm(list = ls())
   # data/d1_raw.rds and data/d2_raw.rds directly.
 
 
-# Library -----------------------------------------------------------------
+# Load packages -----------------------------------------------------------
   library(tidyverse)
 
 
 # Functions ---------------------------------------------------------------
+  
+  # Clean responses
   clean <- function(v, type, range = FALSE) {
     if (is_character(v)) {
       if (type == "n") {
@@ -33,6 +35,7 @@ rm(list = ls())
 
   
 # Import ------------------------------------------------------------------
+  
   # Import and merge csv files
   for (session in 1:8) {
     if (session == 1) {
@@ -73,6 +76,7 @@ rm(list = ls())
 
 
 # Clean -------------------------------------------------------------------
+  
   # Part 1 (TCCT)
   d1 <- d1 %>% mutate(
     session = clean(session, "c"),
@@ -121,6 +125,7 @@ rm(list = ls())
   
 
 # Match -------------------------------------------------------------------
+  
   # Import session-wise target information
   for (session in 1:8) {
     if (session == 1) {
@@ -143,6 +148,7 @@ rm(list = ls())
   
   
 # Transform ---------------------------------------------------------------
+  
   # Assign each participant an unambigious id
   d1 <- d1 %>% mutate(participant = paste(session, participant, sep = ""))
   d2 <- d2 %>% mutate(participant = paste(session, participant, sep = ""))

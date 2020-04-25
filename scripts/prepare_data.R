@@ -4,12 +4,8 @@ rm(list = ls())
   #  See materials/materials.pdf (Appendix D) for items and answer options.
 
 
-# Library -----------------------------------------------------------------
+# Load packages -----------------------------------------------------------
   library(tidyverse)
-
-
-# Functions ---------------------------------------------------------------
-
 
   
 # Import ------------------------------------------------------------------
@@ -18,6 +14,7 @@ rm(list = ls())
 
   
 # Participants ------------------------------------------------------------
+  
   # Count religion, caste (after exclusion)
   d2 %>% count(q36)
   d2 %>% count(q37)
@@ -32,6 +29,7 @@ rm(list = ls())
   
 
 # Transform ---------------------------------------------------------------
+  
   # Code ingroup caste
   d2 <- d2 %>% mutate(
     ig_caste = recode(q37, "1" = "scst", "2" = "scst", "3" = "obc", "4" = "gm")
