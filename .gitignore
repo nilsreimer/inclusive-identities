@@ -2,7 +2,7 @@ data/old/
 data/sessions/
 presentation/
 manuscript/*
-!/manuscript.pdf
+!manuscript/manuscript.pdf
 !manuscript/manuscript.tex
 !manuscript/references.bib
 !manuscript/appendices.pdf
